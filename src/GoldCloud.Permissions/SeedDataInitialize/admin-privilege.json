@@ -1,0 +1,5274 @@
+﻿{
+  "system": {
+    "Id": 398317802215313408,
+    "Name": "运营系统",
+    "Order": 10,
+    "Remark": "运营系统",
+    "Menus": [
+      {
+        "Name": "Crm",
+        "Path": "/crm",
+        "componentUrl": "@/layout",
+        "Meta": {
+          "Title": "Merchant",
+          "Icon": "Merchant",
+          "CachePage": true,
+          "CloseTabRmCache": true
+        },
+        "Lang": "Merchant",
+        "Children": [
+          {
+            "path": "/crm/merchant/management",
+            "componentUrl": "@/views/crm/merchant/list.vue",
+            "name": "Merchant-management",
+            "meta": {
+              "title": "Merchant-manage",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "申请商户",
+                "command": "apply-merchant"
+              },
+              {
+                "name": "设置商户状态",
+                "command": "update-status",
+                "scopenames": [
+                  "api/crm/Admin/Merchant/Update/Status"
+                ]
+              },
+              {
+                "name": "设置认证状态",
+                "command": "update-auth-status",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/AuthStatus"
+                ]
+              },
+              {
+                "name": "设置商户类型",
+                "command": "update-merchant-type",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/Type"
+                ]
+              },
+              {
+                "name": "设置组织类型",
+                "command": "update-org-type",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/OrgType"
+                ]
+              },
+              {
+                "name": "设置商户等级",
+                "command": "update-merchant-level",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/Level"
+                ]
+              },
+              {
+                "name": "设置从属商户",
+                "command": "update-merchant-parent",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/Parent",
+                  "api/crm/Admin/Merchant/List"
+                ]
+              },
+              {
+                "name": "设置自定义代码",
+                "command": "update-custom-code",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/CustomCode"
+                ]
+              },
+              {
+                "name": "设置基础信息",
+                "command": "update-merchant-baseInfo",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/Info"
+                ]
+              },
+              {
+                "name": "设置员工数量",
+                "command": "update-employee-number",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/MaxEmployee"
+                ]
+              },
+              {
+                "name": "设置店铺数量",
+                "command": "update-shop-number",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/MaxShop"
+                ]
+              },
+              {
+                "name": "认证资料",
+                "command": "update-auth-data",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Update/Auth"
+                ]
+              },
+              {
+                "name": "银行卡",
+                "command": "get-bank-list"
+              },
+              {
+                "name": "店员列表",
+                "command": "get-employee-list"
+              },
+              {
+                "name": "店铺列表",
+                "command": "get-shop-list"
+              },
+              {
+                "name": "权限管理",
+                "command": "get-role-list"
+              }
+            ]
+          },
+          {
+            "path": "/crm/merchant/management/roles",
+            "componentUrl": "@/views/crm/merchant/roles.vue",
+            "name": "Merchant-role",
+            "meta": {
+              "title": "Merchant-role",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/MerchantRoles/List",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "创建角色",
+                "command": "create-merchant-role",
+                "scopeNames": [
+                  "api/crm/Admin/MerchantRoles/Create"
+                ]
+              },
+              {
+                "name": "编辑角色",
+                "command": "update-merchant-role",
+                "scopeNames": [
+                  "api/crm/Admin/MerchantRoles/Update"
+                ]
+              },
+              {
+                "name": "删除角色",
+                "command": "delete-merchant-role",
+                "scopeNames": [
+                  "api/crm/Admin/MerchantRoles/Delete"
+                ]
+              },
+              {
+                "name": "角色成员列表",
+                "command": "merchant-role-employee"
+              }
+            ]
+          },
+          {
+            "path": "/crm/merchant/management/roleEmployee",
+            "componentUrl": "@/views/crm/merchant/roleEmployee.vue",
+            "name": "Merchant-role-employee",
+            "meta": {
+              "title": "Merchant-role-employee",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/MerchantRoles/Users"
+            ]
+          },
+          {
+            "path": "/crm/shop/management/:merchantId?",
+            "componentUrl": "@/views/crm/shop/list.vue",
+            "name": "Shop-list",
+            "meta": {
+              "title": "Shop-list",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/crm/Admin/Shop/List",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "申请店铺",
+                "command": "get-apply-shop"
+              },
+              {
+                "name": "设置店铺状态",
+                "command": "update-shop-status",
+                "scopeNames": [
+                  "api/crm/Admin/Shop/Update/Status"
+                ]
+              },
+              {
+                "name": "设置店铺类型",
+                "command": "update-shop-type",
+                "scopeNames": [
+                  "api/crm/Admin/Shop/Update/ShopType"
+                ]
+              },
+              {
+                "name": "设置所属商户",
+                "command": "update-parent",
+                "scopeNames": [
+                  "api/crm/Admin/Shop/Update/Merchant",
+                  "api/crm/Admin/Merchant/List"
+                ]
+              },
+              {
+                "name": "设置基础信息",
+                "command": "update-base-info",
+                "scopeNames": [
+                  "api/crm/Admin/Shop/Update/Info"
+                ]
+              },
+              {
+                "name": "银行卡",
+                "command": "get-bank-list"
+              },
+              {
+                "name": "签约店铺",
+                "command": "signing-swap-shop"
+              },
+              {
+                "name": "换购店铺",
+                "command": "join-swap-shop"
+              },
+              {
+                "name": "店铺二维码",
+                "command": "shop-qecode"
+              },
+              {
+                "name": "回收产品列表",
+                "command": "get-product-list"
+              },
+              {
+                "name": "店铺收货地址",
+                "command": "get-shipping-list"
+              },
+              {
+                "name": "权限管理",
+                "command": "get-role-list"
+              }
+            ]
+          },
+          {
+            "path": "/crm/shop/shipping",
+            "componentUrl": "@/views/crm/shop/shipping.vue",
+            "name": "Shop-shipping-list",
+            "meta": {
+              "title": "Shop-shipping-list",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/Shop/ShipList",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加地址",
+                "command": "add-shipping-address",
+                "scopeNames": [
+                  "api/crm/Admin/Shop/Shipping/Add",
+                  "api/crm/Admin/Shop/List",
+                  "api/crm/Admin/Merchant/List"
+                ]
+              },
+              {
+                "name": "编辑",
+                "command": "edit-address",
+                "scopeNames": [
+                  "api/crm/Admin/Shop/Shipping/Update"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-address",
+                "scopeNames": [
+                  "api/crm/Admin/Shop/Shipping/Delete"
+                ]
+              },
+              {
+                "name": "设为默认",
+                "command": "set-default-address",
+                "scopeNames": [
+                  "api/crm/Admin/Shop/Shipping/Update"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/shop/management/roles/:shopId?",
+            "componentUrl": "@/views/crm/shop/roles.vue",
+            "name": "Shop-role",
+            "meta": {
+              "title": "Shop-role",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/ShopRoles/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "创建角色",
+                "command": "create-shop-role",
+                "scopeNames": [
+                  "api/crm/Admin/ShopRoles/Create"
+                ]
+              },
+              {
+                "name": "编辑角色",
+                "command": "update-shop-role",
+                "scopeNames": [
+                  "api/crm/Admin/ShopRoles/Update"
+                ]
+              },
+              {
+                "name": "删除角色",
+                "command": "delete-shop-role",
+                "scopeNames": [
+                  "api/crm/Admin/ShopRoles/Delete"
+                ]
+              },
+              {
+                "name": "角色成员列表",
+                "command": "shop-role-employee"
+              }
+            ]
+          },
+          {
+            "path": "/crm/shop/management/roleEmployee",
+            "componentUrl": "@/views/crm/shop/roleEmployee.vue",
+            "name": "Shop-role-employee",
+            "meta": {
+              "title": "Shop-role-employee",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/ShopRoles/Users"
+            ]
+          },
+          {
+            "path": "/crm/banklist/management",
+            "componentUrl": "@/views/crm/bankcard/list.vue",
+            "name": "Bankcard-list",
+            "meta": {
+              "title": "Bankcard-list",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/BankCard/GetList"
+            ],
+            "privileges": [
+              {
+                "name": "添加银行卡",
+                "command": "add-bankcard",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/Add"
+                ]
+              },
+              {
+                "name": "设置默认",
+                "command": "setting-default-bankcard",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/SetDefault"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-bankcard",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/Delete"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/employee/management",
+            "componentUrl": "@/views/crm/employee/list.vue",
+            "name": "Employee-list",
+            "meta": {
+              "title": "Employee-list",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "resource": [
+              "api/crm/Admin/Merchant/Staff",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加员工",
+                "command": "append-employee",
+                "scopeNames": [
+                  "api/crm/Admin/User/Create",
+                  "api/crm/Admin/Merchant/List"
+                ]
+              },
+              {
+                "name": "商户列表",
+                "command": "get-merchant-list"
+              },
+              {
+                "name": "设置登录密码",
+                "command": "update-password",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/Password"
+                ]
+              },
+              {
+                "name": "设置状态",
+                "command": "update-status",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/Status"
+                ]
+              },
+              {
+                "name": "设置认证状态",
+                "command": "update-auth-status",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/AuthStatus"
+                ]
+              },
+              {
+                "name": "设置手机号",
+                "command": "update-phone-number",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/Phone"
+                ]
+              },
+              {
+                "name": "设置基础信息",
+                "command": "update-base-info",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/BaseInfo"
+                ]
+              },
+              {
+                "name": "认证资料",
+                "command": "update-auth-info",
+                "scopeNames": [
+                  "api/crm/Admin/User/Authentication",
+                  "api/crm/Admin/User/Update/Auth"
+                ]
+              },
+              {
+                "name": "银行卡",
+                "command": "get-bank-card"
+              },
+              {
+                "name": "权限管理",
+                "command": "get-role-list"
+              }
+            ]
+          },
+          {
+            "path": "/crm/merchant/bankList/:OwnerType?",
+            "componentUrl": "@/views/crm/merchant/bankList.vue",
+            "name": "Merchant-bank-list",
+            "meta": {
+              "title": "Merchant-bank-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/BankCard/GetList",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "设为默认",
+                "command": "set-bank-default",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/SetDefault"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-bank-card",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/Delete"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/shop/bankList/:OwnerType?",
+            "componentUrl": "@/views/crm/shop/bankList.vue",
+            "name": "Shop-bank-list",
+            "meta": {
+              "title": "Shop-bank-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/BankCard/GetList",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "设为默认",
+                "command": "set-bank-default",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/SetDefault"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-bank-card",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/Delete"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/employee/bankList/:OwnerType?",
+            "componentUrl": "@/views/crm/user/bankList.vue",
+            "name": "Employee-bank-list",
+            "meta": {
+              "title": "Employee-bank-list",
+              "userType": 2,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/Merchant/Staff",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "设为默认",
+                "command": "set-bank-default",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/SetDefault"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-bank-card",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/Delete"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/employee/role",
+            "componentUrl": "@/views/crm/employee/roles.vue",
+            "name": "Employee-role-management",
+            "meta": {
+              "title": "Employee-role-management",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/User/GetMchRoles",
+              "api/crm/Admin/User/GetShopRoles"
+            ],
+            "privileges": [
+              {
+                "name": "设置商户角色",
+                "command": "set-merchant-role",
+                "scopeNames": [
+                  "api/crm/Admin/MerchantRoles/AddUserToRole",
+                  "api/crm/Admin/MerchantRoles/List"
+                ]
+              },
+              {
+                "name": "撤销商户角色",
+                "command": "remove-merchant-role",
+                "scopeNames": [
+                  "api/crm/Admin/MerchantRoles/RemoveUserRole"
+                ]
+              },
+              {
+                "name": "设置店铺角色",
+                "command": "set-shop-role",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Shops",
+                  "api/crm/Admin/ShopRoles/AddUserToRole",
+                  "api/crm/Admin/ShopRoles/List"
+                ]
+              },
+              {
+                "name": "撤销店铺角色",
+                "command": "remove-shop-role",
+                "scopeNames": [
+                  "api/crm/Admin/ShopRoles/RemoveUserRole"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/exchangeShop/list",
+            "componentUrl": "@/views/crm/apply/exchangeList.vue",
+            "name": "Exchange-shop-list",
+            "meta": {
+              "title": "Exchange-shop-list",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/tradeIn/List",
+              "api/crm/Admin/Merchant/Shops"
+            ],
+            "privileges": [
+              {
+                "name": "签约店铺",
+                "command": "sign-shop",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/Create",
+                  "api/crm/Admin/Shop/List"
+                ]
+              },
+              {
+                "name": "加入换购",
+                "command": "join-tradeIn",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/List",
+                  "api/order/Admin/Config/TradeIn/Join"
+                ]
+              },
+              {
+                "name": "解约",
+                "command": "rescind-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "同意",
+                "command": "agree-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "拒绝",
+                "command": "refuse-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "签约",
+                "command": "sign-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "设置权重",
+                "command": "set-weight",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/Sort"
+                ]
+              },
+              {
+                "name": "设置佣金",
+                "command": "set-commission",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/RoyaltyFee"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/shop/sign/list",
+            "componentUrl": "@/views/crm/apply/exchangeList.vue",
+            "name": "Sign-shop-list",
+            "meta": {
+              "title": "Sign-shop-list",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/tradeIn/List",
+              "api/crm/Admin/Merchant/Shops"
+            ],
+            "privileges": [
+              {
+                "name": "签约店铺",
+                "command": "sign-shop",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/Create",
+                  "api/crm/Admin/Shop/List"
+                ]
+              },
+              {
+                "name": "加入换购",
+                "command": "join-tradeIn",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/List",
+                  "api/order/Admin/Config/TradeIn/Join"
+                ]
+              },
+              {
+                "name": "解约",
+                "command": "rescind-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "同意",
+                "command": "agree-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "拒绝",
+                "command": "refuse-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "签约",
+                "command": "sign-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "设置权重",
+                "command": "set-weight",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/Sort"
+                ]
+              },
+              {
+                "name": "设置佣金",
+                "command": "set-commission",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/RoyaltyFee"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/shop/tradeIn/list",
+            "componentUrl": "@/views/crm/apply/exchangeList.vue",
+            "name": "TradeIn-shop-list",
+            "meta": {
+              "title": "TradeIn-shop-list",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/tradeIn/List",
+              "api/crm/Admin/Merchant/Shops"
+            ],
+            "privileges": [
+              {
+                "name": "签约店铺",
+                "command": "sign-shop",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/Create",
+                  "api/crm/Admin/Shop/List"
+                ]
+              },
+              {
+                "name": "加入换购",
+                "command": "join-tradeIn",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/List",
+                  "api/order/Admin/Config/TradeIn/Join"
+                ]
+              },
+              {
+                "name": "解约",
+                "command": "rescind-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "同意",
+                "command": "agree-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "拒绝",
+                "command": "refuse-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "签约",
+                "command": "sign-contract",
+                "scopeNames": [
+                  "api/order/Admin/Config/tradeIn/SignStatus"
+                ]
+              },
+              {
+                "name": "设置权重",
+                "command": "set-weight",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/Sort"
+                ]
+              },
+              {
+                "name": "设置佣金",
+                "command": "set-commission",
+                "scopeNames": [
+                  "api/order/Admin/Config/TradeIn/RoyaltyFee"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/merchant/management/apply",
+            "componentUrl": "@/views/crm/merchant/apply.vue",
+            "name": "Apply-merchant",
+            "meta": {
+              "title": "Merchant-apply",
+              "elSvgIcon": "HelpFilled",
+              "closeTabRmCache": true
+            },
+            "resource": [
+              "api/crm//Admin/Merchant/List",
+              "api/crm/Admin/Apply/Merchant/Create"
+            ],
+            "privileges": [
+              {
+                "name": "返回商户列表",
+                "command": "get-merchant-list"
+              }
+            ]
+          },
+          {
+            "path": "/crm/merchant/management/detail",
+            "componentUrl": "@/views/crm/merchant/detail.vue",
+            "name": "Detail-merchant",
+            "meta": {
+              "title": "Apply-merchant-detail",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/Apply/Merchant/Audit",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Apply/Merchant/Detail"
+            ],
+            "privileges": [
+              {
+                "name": "返回商户列表",
+                "command": "get-merchant-list"
+              }
+            ]
+          },
+          {
+            "path": "/crm/apply/shop/order",
+            "componentUrl": "@/views/crm/apply/shop-apply-order.vue",
+            "name": "Apply-shop-order",
+            "meta": {
+              "title": "Apply-shop-order",
+              "elSvgIcon": "HelpFilled",
+              "closeTabRmCache": true
+            },
+            "resource": [
+              "api/crm/Admin/Apply/Merchant/Create",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "返回店铺列表",
+                "command": "get-shop-list"
+              }
+            ]
+          },
+          {
+            "path": "/crm/apply/shop/detail",
+            "componentUrl": "@/views/crm/apply/shop-apply-detail.vue",
+            "name": "Apply-shop-detail",
+            "meta": {
+              "title": "Apply-shop-detail",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/Apply/Shop/Detail",
+              "api/crm/Admin/Apply/Shop/Create",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "返回店铺列表",
+                "command": "get-shop-list"
+              }
+            ]
+          },
+          {
+            "path": "/crm/apply/merchant/management",
+            "componentUrl": "@/views/crm/apply/merchant-apply-order-list.vue",
+            "name": "Apply-merchant-management",
+            "meta": {
+              "title": "Apply-merchant-management",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "resource": [
+              "api/crm/Admin/Apply/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "申请商户",
+                "command": "get-merchant-order"
+              },
+              {
+                "name": "审核",
+                "command": "verify-merchant"
+              },
+              {
+                "name": "详情",
+                "command": "verify-merchant"
+              }
+            ]
+          },
+          {
+            "path": "/crm/apply/shop/order/management",
+            "componentUrl": "@/views/crm/apply/shop-apply-order-list.vue",
+            "name": "Apply-Shop-list",
+            "meta": {
+              "title": "Apply-Shop-list",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "resource": [
+              "api/crm/Admin/Apply/Shop/List",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "申请店铺",
+                "command": "get-shop-order"
+              },
+              {
+                "name": "审核",
+                "command": "verify-shop"
+              },
+              {
+                "name": "详情",
+                "command": "verify-shop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/user",
+        "componentUrl": "@/layout",
+        "name": "User",
+        "alwaysShow": true,
+        "meta": {
+          "title": "Membership",
+          "icon": "member"
+        },
+        "children": [
+          {
+            "path": "/user/membership/list",
+            "componentUrl": "@/views/crm/user/list.vue",
+            "name": "User-list",
+            "meta": {
+              "title": "User-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/crm/Admin/User/List"
+            ],
+            "privileges": [
+              {
+                "name": "设置登录密码",
+                "command": "update-password",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/Password"
+                ]
+              },
+              {
+                "name": "设置会员状态",
+                "command": "update-status",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/Status"
+                ]
+              },
+              {
+                "name": "设置会员等级",
+                "command": "update-level",
+                "scopeNames": [
+                  "api/crm/Admin/User/Level/Update",
+                  "api/crm/Admin/Level/List"
+                ]
+              },
+              {
+                "name": "设置认证状态",
+                "command": "update-auth-status",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/AuthStatus"
+                ]
+              },
+              {
+                "name": "设置手机号",
+                "command": "update-phone-number",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/Phone"
+                ]
+              },
+              {
+                "name": "设置基础信息",
+                "command": "update-base-info",
+                "scopeNames": [
+                  "api/crm/Admin/User/Update/BaseInfo",
+                  "api/crm/Admin/User/Detail"
+                ]
+              },
+              {
+                "name": "收货地址管理",
+                "command": "get-shipping-address"
+              },
+              {
+                "name": "认证资料",
+                "command": "update-auth-info",
+                "scopeNames": [
+                  "api/crm/Admin/User/Authentication",
+                  "api/crm/Admin/User/Update/Auth"
+                ]
+              },
+              {
+                "name": "银行卡",
+                "command": "get-bank-card"
+              }
+            ]
+          },
+          {
+            "path": "/user/bank/list",
+            "componentUrl": "@/views/crm/user/bankList.vue",
+            "name": "Bankcard-list",
+            "meta": {
+              "title": "Bankcard-list",
+              "userType": 1,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/BankCard/GetList"
+            ],
+            "privileges": [
+              {
+                "name": "删除",
+                "command": "delete-bank-card",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/Delete"
+                ]
+              },
+              {
+                "name": "设为默认",
+                "command": "set-bank-default",
+                "scopeNames": [
+                  "api/crm/Admin/BankCard/SetDefault"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/user/shipping/list",
+            "componentUrl": "@/views/crm/user/shipping.vue",
+            "name": "User-shipping-list",
+            "meta": {
+              "title": "User-shipping-list",
+              "userType": 1,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/User/ShipList"
+            ],
+            "privileges": [
+              {
+                "name": "添加地址",
+                "command": "add-shipping-address",
+                "scopeNames": [
+                  "api/crm/Admin/User/Shipping/Create"
+                ]
+              },
+              {
+                "name": "编辑",
+                "command": "edit-address",
+                "scopeNames": [
+                  "api/crm/Admin/User/Shippings/Update",
+                  "api/crm/Admin/User/List"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-address",
+                "scopeNames": [
+                  "api/crm/Admin/User/Shippings/Delete"
+                ]
+              },
+              {
+                "name": "设为默认",
+                "command": "set-default-address",
+                "scopeNames": [
+                  "api/crm/Admin/User/Shippings/Update"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/apply/enterprise/list",
+            "componentUrl": "@/views/crm/apply/enterprise-list.vue",
+            "name": "apply-enterprise-list",
+            "meta": {
+              "title": "apply-enterprise-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/crm/Admin/Apply/EnterpriseUser/List"
+            ],
+            "privileges": [
+              {
+                "name": "查看详情",
+                "command": "enterprise-detail"
+              }
+            ]
+          },
+          {
+            "path": "/crm/apply/enterprise/detail",
+            "componentUrl": "@/views/crm/apply/enterprise-detail.vue",
+            "name": "apply-enterprise-detail",
+            "meta": {
+              "title": "apply-enterprise-detail",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/Apply/EnterpriseUser/Detail",
+              "api/crm/Admin/Apply/EnterpriseUser/Audit"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/order",
+        "componentUrl": "@/layout",
+        "name": "Order",
+        "alwaysShow": true,
+        "meta": {
+          "title": "Order",
+          "icon": "order",
+          "cachePage": true
+        },
+        "children": [
+          {
+            "path": "/order/goldTrade/list",
+            "componentUrl": "@/views/order/goldTrade/list.vue",
+            "name": "GoldTrade-list",
+            "meta": { "title": "GoldTrade-list" },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/GoldTrade/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-config",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Add"
+                ]
+              },
+              {
+                "name": "返回店铺列表",
+                "command": "get-shop-list"
+              },
+              {
+                "name": "关闭该功能",
+                "command": "close-goldtrade",
+                "scopeNames": []
+              },
+              {
+                "name": "开启连续下单",
+                "command": "open-series-order",
+                "scopeNames": []
+              },
+              {
+                "name": "设置手续费",
+                "command": "setting-charge",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "修改配置",
+                "command": "update-config",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "预付款配置",
+                "command": "get-prePayment-config"
+              }
+            ]
+          },
+          {
+            "path": "/order/prePayment/list",
+            "componentUrl": "@/views/order/prePayment/list.vue",
+            "name": "PrePayment-list",
+            "meta": {
+              "title": "PrePayment-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/PrePayment/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-prePayment",
+                "scopeNames": [
+                  "api/order/Admin/Config/PrePayment/Add"
+                ]
+              },
+              {
+                "name": "返回店铺列表",
+                "command": "get-goldTrade-list"
+              },
+              {
+                "name": "修改",
+                "command": "update-prePayment",
+                "scopeNames": [
+                  "api/order/Admin/Config/PrePayment/Update"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-prePayment",
+                "scopeNames": [
+                  "api/order/Admin/Config/PrePayment/Delete"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/order/recovery/store/list",
+            "componentUrl": "@/views/order/recyele/store-list.vue",
+            "name": "order-recovery-store-list",
+            "meta": {
+              "title": "order-recovery-store-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Recycle/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "终端信息",
+                "command": "get-terminal",
+                "scopeNames": [
+                  "api/order/Admin/Recycle/Detail/terminal"
+                ]
+              },
+              {
+                "name": "产品信息",
+                "command": "get-items"
+              },
+              {
+                "name": "收付款单",
+                "command": "get-receipt-payment"
+              },
+              {
+                "name": "交易单",
+                "command": "get-transaction"
+              },
+              {
+                "name": "退料",
+                "command": "material-return",
+                "scopeNames": [
+                  "api/order/Admin/Recycle/Return",
+                  "api/order/admin/recycle/detail/payment"
+                ]
+              },
+              {
+                "name": "退料单",
+                "command": "get-material-return"
+              },
+              {
+                "name": "查看合同",
+                "command": "get-contracts"
+              },
+              {
+                "name": "物流单",
+                "command": "get-logistics"
+              },
+              {
+                "name": "重新付款",
+                "command": "repayments",
+                "scopeNames": [
+                  "api/order/Admin/PaymentOrder/Retry"
+                ]
+              },
+              {
+                "name": "入库单",
+                "command": "get-warehousing"
+              },
+              {
+                "name": "查看异常详情",
+                "command": "abnormal-info",
+                "scopeNames": [
+                  "api/order/admin/recycle/detail/abnormal"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-records"
+              }
+            ]
+          },
+          {
+            "path": "/order/recovery/platform/list",
+            "componentUrl": "@/views/order/recyele/platform-list.vue",
+            "name": "order-recovery-platform-list",
+            "meta": {
+              "title": "order-recovery-platform-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Recycle/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "终端信息",
+                "command": "get-terminal",
+                "scopeNames": [
+                  "api/order/Admin/Recycle/Detail/terminal"
+                ]
+              },
+              {
+                "name": "产品信息",
+                "command": "get-items"
+              },
+              {
+                "name": "收付款单",
+                "command": "get-receipt-payment"
+              },
+              {
+                "name": "交易单",
+                "command": "get-transaction"
+              },
+              {
+                "name": "退料",
+                "command": "material-return",
+                "scopeNames": [
+                  "api/order/Admin/Recycle/Return",
+                  "api/order/admin/recycle/detail/payment"
+                ]
+              },
+              {
+                "name": "退料单",
+                "command": "get-material-return"
+              },
+              {
+                "name": "查看合同",
+                "command": "get-contracts"
+              },
+              {
+                "name": "物流单",
+                "command": "get-logistics"
+              },
+              {
+                "name": "重新付款",
+                "command": "repayments",
+                "scopeNames": [
+                  "api/order/Admin/PaymentOrder/Retry"
+                ]
+              },
+              {
+                "name": "入库单",
+                "command": "get-warehousing"
+              },
+              {
+                "name": "查看异常详情",
+                "command": "abnormal-info",
+                "scopeNames": [
+                  "api/order/admin/recycle/detail/abnormal"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-records"
+              }
+            ]
+          },
+          {
+            "path": "/order/recovery/trade",
+            "componentUrl": "@/views/order/recyele/trade-list.vue",
+            "name": "order-recovery-trade",
+            "meta": {
+              "title": "order-recovery-trade",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/trade/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "收付款单",
+                "command": "get-receipt-payment"
+              },
+              {
+                "name": "交易单",
+                "command": "get-transaction"
+              },
+              {
+                "name": "退款",
+                "command": "order-cancel",
+                "scopeNames": [
+                  "api/order/Admin/trade/cancel"
+                ]
+              },
+              {
+                "name": "退款单",
+                "command": "get-material-return"
+              },
+              {
+                "name": "查看合同",
+                "command": "get-contracts"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-records"
+              }
+            ]
+          },
+          {
+            "path": "/order/recovery/test/details",
+            "componentUrl": "@/views/order/recyele/test-details.vue",
+            "name": "order-recovery-test-details",
+            "meta": {
+              "title": "order-recovery-test-details",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Recycle/Detail/checkrecords"
+            ],
+            "privileges": [
+              {
+                "name": "添加重量检测",
+                "command": "append-weight-test",
+                "scopeNames": [
+                  "api/order/Admin/Recycle/checkrecord"
+                ]
+              },
+              {
+                "name": "添加品质检测",
+                "command": "append-quality-test",
+                "scopeNames": [
+                  "api/order/Admin/Recycle/checkrecord"
+                ]
+              },
+              {
+                "name": "设置检测数据",
+                "command": "detail-check-result",
+                "scopeNames": []
+              }
+            ]
+          },
+          {
+            "path": "/order/recovery/contracts",
+            "componentUrl": "@/views/order/recyele/contracts.vue",
+            "name": "order-recovery-contracts",
+            "meta": {
+              "title": "order-recovery-contracts",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Contract/list"
+            ],
+            "privileges": [
+              {
+                "name": "下载PDF",
+                "command": "down-contract"
+              }
+            ]
+          },
+          {
+            "path": "/order/recovery/records",
+            "componentUrl": "@/views/order/recyele/records.vue",
+            "name": "order-recovery-records",
+            "meta": {
+              "title": "order-recovery-records",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Recycle/Records"
+            ]
+          },
+          {
+            "path": "/order/recovery/items",
+            "componentUrl": "@/views/order/recyele/items.vue",
+            "name": "order-recovery-items",
+            "meta": {
+              "title": "order-recovery-items",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Recycle/Detail/items"
+            ],
+            "privileges": [
+              {
+                "name": "检测证书",
+                "command": "test-certificate"
+              },
+              {
+                "name": "规则详情",
+                "command": "rule-details"
+              },
+              {
+                "name": "算法详情",
+                "command": "algorithm-details"
+              },
+              {
+                "name": "检测详情",
+                "command": "get-test-details"
+              }
+            ]
+          },
+          {
+            "path": "/order/recovery/trade/records",
+            "componentUrl": "@/views/order/recyele/trade-records.vue",
+            "name": "order-recovery-trade-records",
+            "meta": {
+              "title": "order-recovery-trade-records",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Recycle/Records"
+            ]
+          },
+          {
+            "path": "/order/purify/record",
+            "componentUrl": "@/views/order/purify/record.vue",
+            "name": "order-purify-record",
+            "meta": {
+              "title": "order-purify-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/admin/purify/records"
+            ]
+          },
+          {
+            "path": "/order/recovery/machine/records",
+            "componentUrl": "@/views/order/machine/records.vue",
+            "name": "order-recovery-machine-records",
+            "meta": {
+              "title": "order-recovery-machine-records",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/admin/machine/records"
+            ]
+          },
+          {
+            "path": "/order/recovery/machine/requirement",
+            "componentUrl": "@/views/order/machine/requirement.vue",
+            "name": "order-recovery-machine-requirement",
+            "meta": {
+              "title": "order-recovery-machine-requirement",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/admin/machine/detail",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ]
+          },
+          {
+            "path": "/order/repository/list",
+            "componentUrl": "@/views/order/repository/list.vue",
+            "name": "order-repository-list",
+            "meta": {
+              "title": "order-repository-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Repository/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "查看明细",
+                "command": "get-items"
+              }
+            ]
+          },
+          {
+            "path": "/order/repository/items",
+            "componentUrl": "@/views/order/repository/items.vue",
+            "name": "order-repository-items",
+            "meta": {
+              "title": "order-repository-items",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Repository/Items"
+            ],
+            "privileges": [
+              {
+                "name": "入库记录",
+                "command": "get-records"
+              },
+              {
+                "name": "入库",
+                "command": "upload-item",
+                "scopeNames": [
+                  "api/order/Admin/Repository/Upload"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/order/repository/records",
+            "componentUrl": "@/views/order/repository/records.vue",
+            "name": "order-repository-records",
+            "meta": {
+              "title": "order-repository-records",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Repository/Records"
+            ]
+          },
+          {
+            "path": "/order/payment/list",
+            "componentUrl": "@/views/order/payment/list.vue",
+            "name": "order-payment-list",
+            "meta": {
+              "title": "order-payment-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/PaymentOrder/List"
+            ],
+            "privileges": [
+              {
+                "name": "操作记录",
+                "command": "get-operation-record",
+                "scopeNames": []
+              }
+            ]
+          },
+          {
+            "path": "/order/logistics/list",
+            "componentUrl": "@/views/order/logistics/list.vue",
+            "name": "order-logistics-list",
+            "meta": {
+              "title": "order-logistics-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/logistics/admin/LogisticsOrder/list"
+            ]
+          },
+          {
+            "path": "/order/futures/list",
+            "componentUrl": "@/views/order/futures/list.vue",
+            "name": "order-futures-list",
+            "meta": {
+              "title": "order-futures-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/admin/futures/list"
+            ],
+            "privileges": [
+              {
+                "name": "操作记录",
+                "command": "get-operation"
+              }
+            ]
+          },
+          {
+            "path": "/order/futures/record",
+            "componentUrl": "@/views/order/futures/record.vue",
+            "name": "order-futures-record",
+            "meta": {
+              "title": "order-futures-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/admin/futures/records"
+            ]
+          },
+          {
+            "path": "/order/refund/list",
+            "componentUrl": "@/views/order/refund/list.vue",
+            "name": "order-refund-list",
+            "meta": {
+              "title": "order-refund-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/admin/return/list"
+            ],
+            "privileges": [
+              {
+                "name": "备注信息",
+                "command": "get-remark",
+                "scopeNames": []
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-record"
+              },
+              {
+                "name": "查看通知地址",
+                "command": "get-notify-url",
+                "scopeNames": []
+              },
+              {
+                "name": "审核",
+                "command": "audit",
+                "scopeNames": [
+                  "api/order/admin/return/audit"
+                ]
+              },
+              {
+                "name": "物流单",
+                "command": "get-express",
+                "scopeNames": []
+              },
+              {
+                "name": "发货",
+                "command": "deliver",
+                "scopeNames": [
+                  "api/order/admin/return/ship"
+                ]
+              },
+              {
+                "name": "查看发货信息",
+                "command": "deliver-info",
+                "scopeNames": [
+                  "api/order/admin/return/ship"
+                ]
+              },
+              {
+                "name": "查看退款明细",
+                "command": "refund-info",
+                "scopeNames": []
+              }
+            ]
+          },
+          {
+            "path": "/order/refund/record",
+            "componentUrl": "@/views/order/refund/record.vue",
+            "name": "order-refund-record",
+            "meta": {
+              "title": "order-refund-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/admin/return/records"
+            ]
+          },
+          {
+            "path": "/order/purify/list",
+            "componentUrl": "@/views/order/purify/list.vue",
+            "name": "order-purify-list",
+            "meta": {
+              "title": "order-purify-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/admin/purify/list",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "查看原料清单",
+                "command": "stock-detail",
+                "scopeNames": [
+                  "api/order/admin/purify/detail/infos"
+                ]
+              },
+              {
+                "name": "相关图片",
+                "command": "relevant-pics",
+                "scopeNames": [
+                  "api/order/admin/purify/detail/pics"
+                ]
+              },
+              {
+                "name": "收付款信息",
+                "command": "get-payment"
+              },
+              {
+                "name": "来料签收",
+                "command": "material-sign",
+                "scopeNames": [
+                  "api/order/admin/purify/sign"
+                ]
+              },
+              {
+                "name": "审核",
+                "command": "order-audit",
+                "scopeNames": [
+                  "api/order/admin/purify/audit"
+                ]
+              },
+              {
+                "name": "开始加工",
+                "command": "machining-begin",
+                "scopeNames": [
+                  "api/order/admin/purify/begin"
+                ]
+              },
+              {
+                "name": "完成加工",
+                "command": "machining-finish",
+                "scopeNames": [
+                  "api/order/admin/purify/finish"
+                ]
+              },
+              {
+                "name": "物流单",
+                "command": "get-logistics"
+              },
+              {
+                "name": "退款单",
+                "command": "get-material-return"
+              },
+              {
+                "name": "查看合同",
+                "command": "get-contracts"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-record"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/pay",
+        "componentUrl": "@/layout",
+        "name": "Pay",
+        "alwaysShow": true,
+        "meta": {
+          "title": "Pay",
+          "icon": "pay"
+        },
+        "children": [
+          {
+            "path": "/pay/bank/list",
+            "componentUrl": "@/views/pay/bank.vue",
+            "name": "Pay-bank-list",
+            "meta": {
+              "title": "Pay-bank-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/payment/Admin/Bank/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加银行",
+                "command": "add-bank",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/AddBank"
+                ]
+              },
+              {
+                "name": "设置基础信息",
+                "command": "set-baseInfo",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/EditBank"
+                ]
+              },
+              {
+                "name": "设置状态",
+                "command": "set-status",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/EditBankStatus"
+                ]
+              },
+              {
+                "name": "卡模板",
+                "command": "get-template"
+              },
+              {
+                "name": "删除",
+                "command": "delete-bank",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/RemoveBank"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation"
+              }
+            ]
+          },
+          {
+            "path": "/pay/bankRecord/list",
+            "componentUrl": "@/views/pay/bankRecord.vue",
+            "name": "Pay-bankRecord-list",
+            "meta": {
+              "title": "Pay-bankRecord-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/payment/Admin/Bank/ListRecords"
+            ],
+            "privileges": [
+              {
+                "name": "添加银行",
+                "command": "add-bank",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/AddBank"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/pay/bankCardTemplate/list",
+            "componentUrl": "@/views/pay/bankCardTemplate.vue",
+            "name": "Pay-bankCardTemplate-list",
+            "meta": {
+              "title": "Pay-bankCardTemplate-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/payment/Admin/Bank/ListBankCard"
+            ],
+            "privileges": [
+              {
+                "name": "添加卡模板",
+                "command": "add-template",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/AddBankCard",
+                  "api/payment/Admin/Bank/List"
+                ]
+              },
+              {
+                "name": "设置基础信息",
+                "command": "update-template",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/EditBankCard"
+                ]
+              },
+
+              {
+                "name": "删除",
+                "command": "delete-template",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/RemoveBankCard"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-template-operation"
+              }
+            ]
+          },
+          {
+            "path": "/pay/bankCardTemplateRecord/list",
+            "componentUrl": "@/views/pay/bankCardTemplateRecord.vue",
+            "name": "Pay-bankCardTemplateRecord-list",
+            "meta": {
+              "title": "Pay-bankCardTemplateRecord-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/payment/Admin/Bank/ListBankCardRecords"
+            ],
+            "privileges": [
+              {
+                "name": "添加银行",
+                "command": "add-bank",
+                "scopeNames": [
+                  "api/payment/Admin/Bank/AddBank"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/pay/pay-channel/list",
+            "componentUrl": "@/views/pay/pay-channel.vue",
+            "name": "Pay-channel-list",
+            "meta": {
+              "title": "Pay-channel-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/payment/Admin/PaymentChannel/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加渠道",
+                "command": "add-paymentChannel",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/Create"
+                ]
+              },
+              {
+                "name": "刷新余额",
+                "command": "refresh-paymentChannel-balance",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/RefreshBalance"
+                ]
+              },
+
+              {
+                "name": "设置渠道名称",
+                "command": "set-paymentChannelName",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/Update"
+                ]
+              },
+              {
+                "name": "设置状态",
+                "command": "set-paymentChannel-status",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/UpdateStatus"
+                ]
+              },
+              {
+                "name": "自定义配置",
+                "command": "paymentChannel-custom-config",
+                "scopeNames": []
+              },
+              {
+                "name": "设置付款模式",
+                "command": "set-paymentMode",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/UpdatePaymentMode"
+                ]
+              },
+              {
+                "name": "设置付款能力",
+                "command": "set-paymentCapacity",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/UpdatePaymentCapacity"
+                ]
+              },
+              {
+                "name": "设置渠道类型",
+                "command": "set-paymentChannelType",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/UpdateChannelType"
+                ]
+              },
+              {
+                "name": "设置单笔额度",
+                "command": "set-paymentChannel-single-limit",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/UpdateSingleAmount"
+                ]
+              },
+              {
+                "name": "设置累计额度",
+                "command": "set-paymentChannel-total-limit",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/UpdateSingleAmount"
+                ]
+              },
+              {
+                "name": "渠道服务费配置",
+                "command": "get-paymentChannel-serve-config"
+              },
+              {
+                "name": "渠道服务费明细",
+                "command": "get-paymentChannel-serve-detail"
+              },
+              {
+                "name": "客户端白名单",
+                "command": "get-client-whitelist"
+              },
+              {
+                "name": "客户端黑名单",
+                "command": "get-client-blacklist"
+              },
+              {
+                "name": "统计信息",
+                "command": "paymentChannel-statistics"
+              },
+              {
+                "name": "查看余额",
+                "command": "check-paymentChannel-balance",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/QueryBalance"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-paymentChannel-operation"
+              }
+            ]
+          },
+          {
+            "path": "/pay/payment-serve-config/list",
+            "componentUrl": "@/views/pay/payment-serve-config.vue",
+            "name": "Pay-channel-serve-config",
+            "meta": {
+              "title": "Pay-channel-serve-config",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/payment/Admin/PaymentChannel/QueryCharge"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-paymentChannel-serve-config",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/List",
+                  "api/payment/Admin/PaymentChannel/AddChargeRate"
+                ]
+              },
+              {
+                "name": "修改服务费",
+                "command": "update-paymentChannel-fee",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/List",
+                  "api/payment/Admin/PaymentChannel/UpdateChargeRate"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-paymentChannel-fee",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/DeleteChargeRate"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/pay/paymentChannel-record/list",
+            "componentUrl": "@/views/pay/paymentChannel-record.vue",
+            "name": "PaymentChannel-record",
+            "meta": {
+              "title": "PaymentChannel-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/payment/Admin/PaymentChannel/ListRecords"
+            ]
+          },
+          {
+            "path": "/pay/paymentChannel-whitelist/list",
+            "componentUrl": "/views/pay/paymentChannel-whitelist.vue",
+            "name": "PaymentChannel-whitelist",
+            "meta": {
+              "title": "PaymentChannel-whitelist",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": []
+          },
+          {
+            "path": "/pay/paymentChannel-blacklist/list",
+            "componentUrl": "/views/pay/paymentChannel-blacklist.vue",
+            "name": "PaymentChannel-blacklist",
+            "meta": {
+              "title": "PaymentChannel-blacklist",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": []
+          },
+          {
+            "path": "/pay/collection-channels/list",
+            "componentUrl": "@/views/pay/collection-channels.vue",
+            "name": "Pay-collection-channels-list",
+            "meta": {
+              "title": "Pay-collection-channels-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/payment/Admin/CollectionChannel/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加渠道",
+                "command": "add-collectionChannel",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/Create"
+                ]
+              },
+              {
+                "name": "刷新余额",
+                "command": "refresh-collectionChannel-balance",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/RefreshBalance"
+                ]
+              },
+              {
+                "name": "自定义配置",
+                "command": "get-collectionChannel-custom-config"
+              },
+              {
+                "name": "设置名称",
+                "command": "set-collectionChannelName",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/Update"
+                ]
+              },
+              {
+                "name": "设置类型和模式",
+                "command": "set-collectionChannel-type-mode",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/UpdateChannelType"
+                ]
+              },
+              {
+                "name": "设置额度",
+                "command": "set-collectionChannel-limit",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/UpdateSingleAmount"
+                ]
+              },
+              {
+                "name": "设置状态",
+                "command": "set-collectionChannel-status",
+                "scopeNames": [
+                  "api/payment/Admin/PaymentChannel/UpdateStatus"
+                ]
+              },
+              {
+                "name": "设置手续费",
+                "command": "set-collectionChannel-fee",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/UpdateChargeRate"
+                ]
+              },
+              {
+                "name": "渠道终端配置",
+                "command": "get-collectionChannel-terminal-config"
+              },
+              {
+                "name": "查看余额",
+                "command": "check-collectionChannel-balance",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/QueryBalance"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-collectionChannel-operation"
+              }
+            ]
+          },
+          {
+            "path": "/pay/collection-channels-custom-config/list",
+            "componentUrl": "@/views/pay/collectionChannel-custom-config.vue",
+            "name": "CollectionChannel-custom-config-list",
+            "meta": {
+              "title": "CollectionChannel-custom-config-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/payment/Admin/CollectionChannel/ListConfiguration"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-collectionChannel-custom-config",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/AddConfig"
+                ]
+              },
+              {
+                "name": "修改配置",
+                "command": "update-collectionChannel-config",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/UpdateConfig"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-collectionChannel-config",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/DeleteConfig"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/pay/collectionChannel-record/list",
+            "componentUrl": "@/views/pay/collectionChannel-record.vue",
+            "name": "CollectionChannel-record",
+            "meta": {
+              "title": "CollectionChannel-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/payment/Admin/CollectionChannel/ListRecords"
+            ]
+          },
+          {
+            "path": "/pay/collectionChannel-terminal-config/list",
+            "componentUrl": "@/views/pay/collectionChannel-terminal-config.vue",
+            "name": "CollectionChannel-terminal-config",
+            "meta": {
+              "title": "CollectionChannel-terminal-config",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/payment/Admin/CollectionChannel/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-collectionChannel-config",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/AddTerminalType"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-collectionChannel-terminalConfig",
+                "scopeNames": [
+                  "api/payment/Admin/CollectionChannel/DeleteTerminalType"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/pay/pay-sign/list",
+            "componentUrl": "@/views/pay/pay-sign.vue",
+            "name": "Pay-sign-list",
+            "meta": {
+              "title": "Pay-sign-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/pay/shop-pay-bookConfig/list",
+            "componentUrl": "@/views/pay/shop-pay-bookConfig.vue",
+            "name": "Shop-pay-bookConfig",
+            "meta": {
+              "title": "Shop-pay-bookConfig",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/pay/shop-pay-bookConfig-record/list",
+            "componentUrl": "@/views/pay/shop-pay-bookConfig-record.vue",
+            "name": "Shop-pay-bookConfig",
+            "meta": {
+              "title": "Shop-pay-bookConfig-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/pay/pay-order/list",
+            "componentUrl": "@/views/pay/pay-order.vue",
+            "name": "Pay-order-list",
+            "meta": {
+              "title": "Pay-order-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/pay/receiving-order/list",
+            "componentUrl": "@/views/pay/receiving-order.vue",
+            "name": "Receiving-order-list",
+            "meta": {
+              "title": "Receiving-order-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/payment/Admin/MerchantCollectionOrder/List",
+              "api/payment/Admin/CollectionChannel/List"
+            ],
+            "privileges": [
+              {
+                "name": "确认收款",
+                "command": "confirm-collection",
+                "scopeNames": [
+                  "api/payment/Admin/MerchantCollectionOrder/UpdateBankOrderResult"
+                ]
+              },
+              {
+                "name": "查看退款记录",
+                "command": "get-check-refund"
+              },
+              {
+                "name": "通知调用方",
+                "command": "collectionOrder-notify-caller",
+                "scopeNames": [
+                  "api/payment/Admin/MerchantCollectionOrder/NotifyResult"
+                ]
+              },
+              {
+                "name": "查看通知地址",
+                "command": "check-notify-address"
+              },
+              {
+                "name": "查看收款账户",
+                "command": "check-collection-acount"
+              },
+              {
+                "name": "查看备注",
+                "command": "check-remark"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-collectionorder-operation"
+              }
+            ]
+          },
+          {
+            "path": "/pay/refund-order/list",
+            "componentUrl": "@/views/pay/refund-order.vue",
+            "name": "Refund-order-list",
+            "meta": {
+              "title": "Refund-order-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/pay/refund-record/list",
+            "componentUrl": "/views/pay/refund-record.vue",
+            "name": "Refund-record-list",
+            "meta": {
+              "title": "Refund-record-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/pay/paymentChannel-channels-custom-config/list",
+            "componentUrl": "@/views/pay/paymentChannel-custom-config.vue",
+            "name": "PaymentChannel-custom-config-list",
+            "meta": {
+              "title": "PaymentChannel-custom-config-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": []
+          }
+        ]
+      },
+      {
+        "path": "/logistics",
+        "componentUrl": "@/layout",
+        "name": "logistics",
+        "alwaysShow": true,
+        "meta": {
+          "title": "logistics",
+          "icon": "logistics",
+          "cachePage": true
+        },
+        "children": [
+          {
+            "path": "/logistics/list",
+            "componentUrl": "@/views/logistics/logisticsService/list.vue",
+            "name": "logistics-list",
+            "meta": {
+              "title": "logistics-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/logistics/Admin/LogisticsService/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加渠道",
+                "command": "service-create",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/Create"
+                ]
+              },
+              {
+                "name": "设置渠道信息",
+                "command": "service-info",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/Update"
+                ]
+              },
+              {
+                "name": "设置渠道类型",
+                "command": "service-type",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/UpdateType"
+                ]
+              },
+              {
+                "name": "设置渠道能力",
+                "command": "service-capability",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/UpdateCapability"
+                ]
+              },
+              {
+                "name": "设置下单模式",
+                "command": "service-place-mode",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/UpdatePlaceMode"
+                ]
+              },
+              {
+                "name": "设置渠道状态",
+                "command": "service-status",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/UpdateStatus"
+                ]
+              },
+              {
+                "name": "设置优先级",
+                "command": "set-priority",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/UpdateOrder"
+                ]
+              },
+              {
+                "name": "自定义配置",
+                "command": "service-configure"
+              },
+              {
+                "name": "查看快递明细",
+                "command": "express-detail"
+              },
+              {
+                "name": "查看统计信息",
+                "command": "service-statistics"
+              },
+              {
+                "name": "操作记录",
+                "command": "operation-record"
+              }
+            ]
+          },
+          {
+            "path": "/logistics/configure",
+            "componentUrl": "@/views/logistics/logisticsService/configure.vue",
+            "name": "logistics-configure",
+            "meta": {
+              "title": "logistics-configure",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resouce": [
+              "api/logistics/Admin/LogisticsService/ListConfigure"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "configure-create",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/AddConfig"
+                ]
+              },
+              {
+                "name": "修改",
+                "command": "configure-update",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/UpdateConfig"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "configure-remove",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsService/RemoveConfig"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "logistics-service-record",
+            "componentUrl": "@/views/logistics/logisticsService/record.vue",
+            "name": "logistics-service-record",
+            "meta": {
+              "title": "logistics-service-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/logistics/Admin/LogisticsService/ListRecords"
+            ]
+          },
+          {
+            "path": "/logistics/order",
+            "componentUrl": "@/views/logistics/logisticsOrder/list.vue",
+            "name": "logistics-order",
+            "meta": {
+              "title": "logistics-order",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/logistics/Admin/LogisticsOrder/List",
+              "api/logistics/Admin/LogisticsService/List"
+            ],
+            "privileges": [
+              {
+                "name": "查看轨迹",
+                "command": "query-route",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsOrder/QueryRoute"
+                ]
+              },
+              {
+                "name": "查看派件信息",
+                "command": "dispatch-info"
+              },
+              {
+                "name": "查看费用清单",
+                "command": "pay-detail"
+              },
+              {
+                "name": "物品清单",
+                "command": "goods-detail"
+              },
+              {
+                "name": "查看备注",
+                "command": "remark-info"
+              },
+              {
+                "name": "取消",
+                "command": "order-cancel",
+                "scopeNames": [
+                  "api/logistics/Admin/LogisticsOrder/Cancel"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "order-record"
+              }
+            ]
+          },
+          {
+            "path": "logistics-order-record",
+            "componentUrl": "@/views/logistics/logisticsOrder/record.vue",
+            "name": "logistics-order-record",
+            "meta": {
+              "title": "logistics-order-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/logistics/Admin/LogisticsOrder/ListRecords"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/terminal",
+        "componentUrl": "@/layout",
+        "name": "Terminal",
+        "meta": {
+          "title": "Terminal",
+          "icon": "terminal",
+          "cachePage": true,
+          "closeTabRmCache": true
+        },
+        "children": [
+          {
+            "path": "/terminal/type/list",
+            "componentUrl": "@/views/terminal/type/list.vue",
+            "name": "Type-list",
+            "meta": {
+              "title": "Type-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/terminal/Admin/Type/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加型号",
+                "command": "add-type",
+                "scopeNames": [
+                  "api/terminal/Admin/Type/Create"
+                ]
+              },
+              {
+                "name": "修改信息",
+                "command": "update-type",
+                "scopeNames": [
+                  "api/terminal/Admin/Type/Update"
+                ]
+              },
+              {
+                "name": "修改状态",
+                "command": "update_status",
+                "scopeNames": [
+                  "api/terminal/Admin/Type/Update/Status"
+                ]
+              },
+              {
+                "name": "模块列表",
+                "command": "get-module"
+              }
+            ]
+          },
+          {
+            "path": "/terminal/category/list",
+            "componentUrl": "@/views/terminal/category/list.vue",
+            "name": "terminal-category",
+            "meta": {
+              "title": "terminal-category",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/terminal/Admin/Category/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加类型",
+                "command": "create-category",
+                "scopeNames": [
+                  "api/terminal/Admin/Category/Create"
+                ]
+              },
+              {
+                "name": "修改信息",
+                "command": "update-category",
+                "scopeNames": [
+                  "api/terminal/Admin/Category/Update"
+                ]
+              },
+              {
+                "name": "修改状态",
+                "command": "update-status",
+                "scopeNames": [
+                  "api/terminal/Admin/Category/Update/Status"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/list",
+            "componentUrl": "@/views/terminal/terminal/list.vue",
+            "name": "Terminal-list",
+            "meta": {
+              "title": "Terminal-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/terminal/Admin/Terminal/GetList",
+              "api/terminal/Admin/Category/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加终端",
+                "command": "add-terminal",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Create"
+                ]
+              },
+              {
+                "name": "设置终端号",
+                "command": "update-terminalCode",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/UpdateCode"
+                ]
+              },
+              {
+                "name": "设置终端名称",
+                "command": "update-terminalName",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/UpdateName"
+                ]
+              },
+              {
+                "name": "设置终端状态",
+                "command": "update-status",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Update/Status"
+                ]
+              },
+              {
+                "name": "设置型号",
+                "command": "update-type",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Update/Type"
+                ]
+              },
+              {
+                "name": "设置运维人",
+                "command": "set-operator",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/SetMaintainUser"
+                ]
+              },
+              {
+                "name": "模块列表",
+                "command": "get-business-module"
+              },
+              {
+                "name": "安装终端",
+                "command": "install-terminal",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Install"
+                ]
+              },
+              {
+                "name": "撤销安装",
+                "command": "uninstall-terminal",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/UnInstall"
+                ]
+              },
+              {
+                "name": "运维记录",
+                "command": "get-maintain"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operate-record"
+              },
+              {
+                "name": "异常记录",
+                "command": "get-error-record"
+              },
+              {
+                "name": "终端日志",
+                "command": "get-log-list"
+              },
+              {
+                "name": "远程控制",
+                "command": "get-remote-command"
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/module",
+            "componentUrl": "@/views/terminal/terminal/module.vue",
+            "name": "Terminal-business-modules",
+            "meta": {
+              "title": "Terminal-business-modules",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Terminal/GetModules"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-terminal"
+              },
+              {
+                "name": "重置使用信息",
+                "command": "reset-module",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Module/ResetStats"
+                ]
+              },
+              {
+                "name": "设置使用(报警)次数",
+                "command": "update-moduleArgument",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Module/UpdateArgument"
+                ]
+              },
+              {
+                "name": "设置模块状态",
+                "command": "set-moduleStatus",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Module/UpdateStatus"
+                ]
+              },
+              {
+                "name": "设置备用数量",
+                "command": "set-bakUpCount",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Module/Update"
+                ]
+              },
+              {
+                "name": "查看自定义配置",
+                "command": "get-custom-config"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operate-record"
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/modules",
+            "componentUrl": "@/views/terminal/module/list.vue",
+            "name": "Terminal-base-modules",
+            "meta": {
+              "title": "Terminal-base-modules",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/terminal/Admin/TerminalModule/GetList"
+            ],
+            "privileges": [
+              {
+                "name": "添加模块",
+                "command": "add-module",
+                "scopeNames": [
+                  "api/terminal/Admin/TerminalModule/Create"
+                ]
+              },
+              {
+                "name": "批量添加模块",
+                "command": "batch-add-module",
+                "scopeNames": [
+                  "api/terminal/Admin/TerminalModule/Batch"
+                ]
+              },
+              {
+                "name": "修改信息",
+                "command": "update-module",
+                "scopeNames": [
+                  "api/terminal/Admin/TerminalModule/Update"
+                ]
+              },
+              {
+                "name": "修改状态",
+                "command": "update-status",
+                "scopeNames": [
+                  "api/terminal/Admin/TerminalModule/Update/Status"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/auditor/list",
+            "componentUrl": "@/views/crm/auditor/list.vue",
+            "name": "Auditor-list",
+            "meta": {
+              "title": "Auditor-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/Auditor/List"
+            ],
+            "privileges": [
+              {
+                "name": "新增审计单位",
+                "command": "create-auditor",
+                "scopeNames": [
+                  "api/crm/Admin/Auditor/Add"
+                ]
+              },
+              {
+                "name": "修改信息",
+                "command": "edit-auditor",
+                "scopeNames": [
+                  "api/crm/Admin/Auditor/Update"
+                ]
+              },
+              {
+                "name": "查看配置",
+                "command": "get-config"
+              }
+            ]
+          },
+          {
+            "path": "/crm/auditor/config",
+            "componentUrl": "@/views/crm/auditor/config.vue",
+            "name": "Auditor-config",
+            "meta": { "title": "Auditor-config" },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/Auditor/Config/List",
+              "api/crm/Admin/Auditor/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "create-config",
+                "scopeNames": [
+                  "api/crm/Admin/Auditor/Config/Add"
+                ]
+              },
+              {
+                "name": "修改配置",
+                "command": "edit-config",
+                "scopeNames": [
+                  "api/crm/Admin/Auditor/Config/Update"
+                ]
+              },
+              {
+                "name": "删除配置",
+                "command": "remove-config",
+                "scopeNames": [
+                  "api/crm/Admin/Auditor/Config/Delete"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/crm/auditor/record",
+            "componentUrl": "@/views/crm/auditor/record.vue",
+            "name": "Auditor-record",
+            "meta": {
+              "title": "Auditor-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": []
+          },
+          {
+            "path": "/terminal/terminal/consumable",
+            "componentUrl": "@/views/terminal/terminal/consumable.vue",
+            "name": "Terminal-consumable",
+            "meta": {
+              "title": "Terminal-consumable",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Stats/StatsBatch"
+            ]
+          },
+          {
+            "path": "/terminal/terminal/maintain",
+            "componentUrl": "@/views/terminal/maintain/list.vue",
+            "name": "Terminal-maintain",
+            "meta": {
+              "title": "Terminal-maintain",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/terminal/Admin/MaintainOrder/GetList",
+              "api/terminal/Admin/Terminal/GetList"
+            ],
+            "privileges": [
+              {
+                "name": "维修记录",
+                "command": "repair-records"
+              },
+              {
+                "name": "修改状态",
+                "command": "update-status",
+                "scopeNames": [
+                  "api/terminal/Admin/MaintainOrder/UpdateStatus"
+                ]
+              },
+              {
+                "name": "完成订单",
+                "command": "complete-order",
+                "scopeNames": [
+                  "api/terminal/Admin/MaintainOrder/Complete"
+                ]
+              },
+              {
+                "name": "指派订单",
+                "command": "assign-order",
+                "scopeNames": [
+                  "api/terminal/Admin/MaintainOrder/Assign"
+                ]
+              },
+              {
+                "name": "维修记录",
+                "command": "repair-records"
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/maintain/records",
+            "componentUrl": "@/views/terminal/maintain/records.vue",
+            "name": "Terminal-maintain-records",
+            "meta": {
+              "title": "Terminal-maintain-records",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/MaintainOrder/GetRecords"
+            ]
+          },
+          {
+            "path": "/terminal/terminal/operation",
+            "componentUrl": "@/views/terminal/terminal/operation.vue",
+            "name": "Terminal-operation",
+            "meta": {
+              "title": "Terminal-operation",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Terminal/GetRecords",
+              "api/terminal/Admin/Terminal/GetModules"
+            ]
+          },
+          {
+            "path": "/terminal/terminal/error",
+            "componentUrl": "@/views/terminal/terminal/error.vue",
+            "name": "Terminal-error",
+            "meta": {
+              "title": "Terminal-error",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Terminal/GetErrors"
+            ],
+            "privileges": [
+              {
+                "name": "查看堆栈",
+                "command": "stack-detail"
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/logs",
+            "componentUrl": "@/views/terminal/terminal/logs.vue",
+            "name": "Terminal-logs",
+            "meta": {
+              "title": "Terminal-logs",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Terminal/GetLogs"
+            ],
+            "privileges": [
+              {
+                "name": "上传日志",
+                "command": "upload-log",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/UploadLog"
+                ]
+              },
+              {
+                "name": "下载日志",
+                "command": "download-logs"
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/configs",
+            "componentUrl": "@/views/terminal/terminal/configs.vue",
+            "name": "Terminal-configs",
+            "meta": {
+              "title": "Terminal-configs",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Terminal/GetModuleConfigs",
+              "api/terminal/Admin/Terminal/GetList",
+              "api/terminal/Admin/Terminal/GetModules"
+            ],
+            "privileges": [
+              {
+                "name": "添加自定义配置",
+                "command": "custom-config",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/SetModuleConfig"
+                ]
+              },
+              {
+                "name": "编辑",
+                "command": "update-config",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/SetModuleConfig"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-config",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/DeleteModuleConfig"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/diagnosis",
+            "componentUrl": "@/views/terminal/terminal/diagnosis.vue",
+            "name": "Terminal-diagnosis",
+            "meta": {
+              "title": "Terminal-diagnosis",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Terminal/GetDiagnoses"
+            ],
+            "privileges": [
+              {
+                "name": "发送诊断指令",
+                "command": "diagnosis-command",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/Diagnose"
+                ]
+              },
+              {
+                "name": "设备状态",
+                "command": "device-status"
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/jurisdiction",
+            "componentUrl": "@/views/terminal/terminal/jurisdiction.vue",
+            "name": "Terminal-jurisdiction",
+            "meta": {
+              "title": "Terminal-jurisdiction",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Permissions/FreeCheck/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "+ 免检",
+                "command": "add-freecheck",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List",
+                  "api/terminal/Admin/Permissions/FreeCheck/Set"
+                ]
+              },
+              {
+                "name": "设置免检次数",
+                "command": "set-freecheck-times",
+                "scopeNames": [
+                  "api/terminal/Admin/Permissions/FreeCheck/Set"
+                ]
+              },
+              {
+                "name": "删除免检次数",
+                "command": "delete-freecheck",
+                "scopeNames": [
+                  "api/terminal/Admin/Permissions/FreeCheck/Set"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/terminal/terminal/auth",
+            "componentUrl": "@/views/terminal/terminal/auth.vue",
+            "name": "Terminal-auth",
+            "meta": {
+              "title": "Terminal-auth",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Permissions/FreeCheck/List"
+            ],
+            "privileges": [
+              {
+                "name": "更新认证信息",
+                "command": "update-auth",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Terminal/Update/Authen"
+                ]
+              },
+              {
+                "name": "设置免检次数",
+                "command": "set-freecheck-times",
+                "scopeNames": [
+                  "api/terminal/Admin/Permissions/FreeCheck/Set"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/terminal/type/module",
+            "componentUrl": "@/views/terminal/type/module.vue",
+            "name": "Type-module",
+            "meta": {
+              "title": "Type-module",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Type/GetModules"
+            ]
+          },
+          {
+            "path": "/terminal/config/detail",
+            "componentUrl": "@/views/terminal/config/detail.vue",
+            "name": "Config-detail",
+            "meta": {
+              "title": "Config-detail",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Configs/Terminal/GetConfigsAsync"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-terminal"
+              },
+              {
+                "name": "重置使用信息",
+                "command": "reset-module",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Module/ResetStats"
+                ]
+              },
+              {
+                "name": "设置使用(报警)次数",
+                "command": "update-moduleArgument",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Module/UpdateArgument"
+                ]
+              },
+              {
+                "name": "设置模块状态",
+                "command": "set-moduleStatus",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Module/UpdateStatus"
+                ]
+              },
+              {
+                "name": "设置备用数量",
+                "command": "set-bakUpCount",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/Module/Update"
+                ]
+              },
+              {
+                "name": "查看自定义配置",
+                "command": "get-custom-config"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operate-record"
+              }
+            ]
+          },
+          {
+            "path": "/terminal/config/freecheck",
+            "componentUrl": "@/views/terminal/config/freecheck.vue",
+            "name": "Config-freecheck",
+            "meta": {
+              "title": "Config-freecheck",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/terminal/Admin/Permissions/FreeCheck/List"
+            ]
+          },
+          {
+            "path": "/terminal/remote/list",
+            "componentUrl": "@/views/terminal/remote/list.vue",
+            "name": "Remote-list",
+            "meta": {
+              "title": "Remote-list",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "resource": [
+              "api/terminal/Admin/Command/List",
+              "api/terminal/Admin/Terminal/GetList"
+            ],
+            "privileges": [
+              {
+                "name": "下位机复位",
+                "command": "underMachine-init",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/UnderMachineReset"
+                ]
+              },
+              {
+                "name": "定时开关机",
+                "command": "timing-switcher",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/BootConfig"
+                ]
+              },
+              {
+                "name": "下位机关机",
+                "command": "device-shutDown",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/UnderMachineShutDown"
+                ]
+              },
+              {
+                "name": "天平去皮",
+                "command": "balance-zero",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/BalanceZero"
+                ]
+              },
+              {
+                "name": "更换石墨锅",
+                "command": "pot-move",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/PotMove"
+                ]
+              },
+              {
+                "name": "打开报警器",
+                "command": "open-police",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/OpenPolice"
+                ]
+              },
+              {
+                "name": "关闭报警器",
+                "command": "close-police",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/StopPolice"
+                ]
+              },
+              {
+                "name": "上传日志",
+                "command": "upload-log",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/UploadLog"
+                ]
+              },
+              {
+                "name": "上报位置",
+                "command": "upload-position",
+                "scopeNames": [
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/terminal/Admin/Command/UploadPosition"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/terminal/group/list",
+            "componentUrl": "@/views/terminal/group/list.vue",
+            "name": "Group-list",
+            "meta": {
+              "title": "Group-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/terminal/Admin/Group/GetTerminals"
+            ],
+            "privileges": [
+              {
+                "name": "添加组",
+                "command": "create-group",
+                "scopeNames": [
+                  "api/terminal/Admin/Group/GetGroups",
+                  "api/terminal/Admin/Group/Create"
+                ]
+              },
+              {
+                "name": "移除终端",
+                "command": "remove-terminal",
+                "scopeNames": [
+                  "api/terminal/Admin/Group/RemoveFromGroup"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/develop",
+        "componentUrl": "@/layout",
+        "name": "develop",
+        "alwaysShow": true,
+        "meta": {
+          "title": "develop",
+          "icon": "jurisdiction",
+          "cachePage": true
+        },
+        "children": [
+          {
+            "path": "/develop/merchant/secret",
+            "componentUrl": "@/views/crm/secret/list.vue",
+            "name": "develop-merchant-secret",
+            "meta": {
+              "title": "develop-merchant-secret",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/crm/Admin/Merchant/Secret/List",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "查看密钥",
+                "command": "secret-detail",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/Secret/Get"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/develop/merchant/notify",
+            "componentUrl": "@/views/develop/merchant-notify.vue",
+            "name": "develop-merchant-notify",
+            "meta": {
+              "title": "develop-merchant-notify",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/MerchantNotice/List",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "启用",
+                "command": "enable-notify",
+                "scopeNames": [
+                  "api/order/Admin/Config/MerchantNotice/IsEnable"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/develop/merchant/record",
+            "componentUrl": "@/views/develop/merchant-record.vue",
+            "name": "develop-merchant-record",
+            "meta": {
+              "title": "develop-merchant-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/Records"
+            ],
+            "privileges": []
+          }
+        ]
+      },
+      {
+        "path": "/operationConfig",
+        "componentUrl": "@/layout",
+        "name": "OperationConfig",
+        "alwaysShow": true,
+        "meta": {
+          "title": "Config",
+          "icon": "businessConfiguration",
+          "cachePage": true,
+          "closeTabRmCache": true
+        },
+        "children": [
+          {
+            "path": "/operationConfig/merchantRecoveryCharge/merchant-recycle",
+            "componentUrl": "@/views/operationConfig/merchantRecoveryCharge/list.vue",
+            "name": "MerchantRecoveryCharge-list",
+            "meta": {
+              "title": "MerchantRecoveryCharge-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/RecoveryCharge/list",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-config",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/order/Admin/RecoveryCharge/Upsert"
+                ]
+              },
+              {
+                "name": "设置手续费",
+                "command": "set-charge",
+                "scopeNames": [
+                  "api/order/Admin/RecoveryCharge/Upsert"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-history"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/merchantRecoveryCharge/record",
+            "componentUrl": "@/views/operationConfig/merchantRecoveryCharge/record.vue",
+            "name": "RecoveryCharge-record",
+            "meta": {
+              "title": "RecoveryCharge-record",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/RecoveryCharge/Record"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-back"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/shopGoldTrade/list",
+            "componentUrl": "@/views/operationConfig/shopGoldTrade/list.vue",
+            "name": "ShopGoldTrade-list",
+            "meta": {
+              "title": "ShopGoldTrade-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/GoldTrade/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-config",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List",
+                  "api/order/Admin/Config/GoldTrade/Add"
+                ]
+              },
+              {
+                "name": "设置手续费",
+                "command": "set-charge",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "关闭配置",
+                "command": "set-enable",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "开启配置",
+                "command": "set-enable",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "关闭连续下单",
+                "command": "set-isCanOrderWhenNotComplated",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "开启连续下单",
+                "command": "set-isCanOrderWhenNotComplated",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "修改类型",
+                "command": "update-type",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "修改交易重量",
+                "command": "update-deal-weight",
+                "scopeNames": [
+                  "api/order/Admin/Config/GoldTrade/Update"
+                ]
+              },
+              {
+                "name": "预付款配置",
+                "command": "get-prepayment-config"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-history"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/shopGoldTrade/record",
+            "componentUrl": "@/views/operationConfig/shopGoldTrade/record.vue",
+            "name": "ShopGoldTrade-record",
+            "meta": {
+              "title": "ShopGoldTrade-record",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/Records"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-back"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/shopPrePayment/list",
+            "componentUrl": "@/views/operationConfig/shopPrePayment/list.vue",
+            "name": "ShopPrePayment-list",
+            "meta": {
+              "title": "ShopPrePayment-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/PrePayment/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-config",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List",
+                  "api/order/Admin/Config/PrePayment/Add"
+                ]
+              },
+              {
+                "name": "设置买卖类型",
+                "command": "set-tradeType",
+                "scopeNames": [
+                  "api/order/Admin/Config/PrePayment/Update"
+                ]
+              },
+              {
+                "name": "设置预付款",
+                "command": "set-prepayment",
+                "scopeNames": [
+                  "api/order/Admin/Config/PrePayment/Update"
+                ]
+              },
+              {
+                "name": "设置交易重量",
+                "command": "set-deal-weight",
+                "scopeNames": [
+                  "api/order/Admin/Config/PrePayment/Update"
+                ]
+              },
+              {
+                "name": "设置状态",
+                "command": "set-status",
+                "scopeNames": [
+                  "api/order/Admin/Config/PrePayment/Update"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-history"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/shopPaymentConfig/list",
+            "componentUrl": "@/views/operationConfig/shopPaymentConfig/list.vue",
+            "name": "ShopPaymentConfig-list",
+            "meta": {
+              "title": "ShopPaymentConfig-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/payment/Admin/StoreConfig/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-config",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List",
+                  "api/payment/Admin/StoreConfig/AddConfig"
+                ]
+              },
+              {
+                "name": "设置付款类型",
+                "command": "set-payment-type",
+                "scopeNames": [
+                  "api/payment/Admin/StoreConfig/UpdatePayType"
+                ]
+              },
+              {
+                "name": "设置手续费",
+                "command": "set-charge",
+                "scopeNames": [
+                  "api/payment/Admin/StoreConfig/UpdateServiceCharge"
+                ]
+              },
+              {
+                "name": "设置状态",
+                "command": "set-status",
+                "scopeNames": [
+                  "api/payment/Admin/StoreConfig/UpdateStatus"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-record"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/shopPaymentConfig/record",
+            "componentUrl": "@/views/operationConfig/shopPaymentConfig/record.vue",
+            "name": "ShopPaymentConfig-record",
+            "meta": {
+              "title": "ShopPaymentConfig-record",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/payment/Admin/StoreConfig/RecordList"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-back"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/purificationFee/list",
+            "componentUrl": "@/views/operationConfig/purificationFee/list.vue",
+            "name": "PurificationFee-Config",
+            "meta": {
+              "title": "PurificationFee-Config",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/PurificationFee/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-purificationFee",
+                "scopeNames": [
+                  "api/order/Admin/Config/PurificationFee/Add"
+                ]
+              },
+              {
+                "name": "修改手续费",
+                "command": "update-purificationFee",
+                "scopeNames": [
+                  "api/order/Admin/Config/PurificationFee/Update"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operate-record"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/purificationFee/list",
+            "componentUrl": "@/views/operationConfig/purificationFee/record.vue",
+            "name": "PurificationFee-Record",
+            "meta": {
+              "title": "PurificationFee-Record",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/Records"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-back"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/switch/list",
+            "componentUrl": "@/views/operationConfig/switch/shop.vue",
+            "name": "operationConfig-shop-switch",
+            "meta": {
+              "title": "operationConfig-shop-switch",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/ServiceSwitch/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-config",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List",
+                  "api/order/Admin/Config/ServiceSwitch/Add"
+                ]
+              },
+              {
+                "name": "修改时间段",
+                "command": "set-time",
+                "scopeNames": [
+                  "api/order/Admin/Config/ServiceSwitch/Update"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-history"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/global/list",
+            "componentUrl": "@/views/operationConfig/switch/global.vue",
+            "name": "operationConfig-global-list",
+            "meta": {
+              "title": "operationConfig-global-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/ServiceSwitch/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-config",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List",
+                  "api/order/Admin/Config/ServiceSwitch/Add"
+                ]
+              },
+              {
+                "name": "修改时间段",
+                "command": "set-time",
+                "scopeNames": [
+                  "api/order/Admin/Config/ServiceSwitch/Update"
+                ]
+              },
+              {
+                "name": "删除配置",
+                "command": "delete-switch",
+                "scopeNames": [
+                  "api/order/Admin/Config/ServiceSwitch/Delete"
+                ]
+              },
+              {
+                "name": "添加例外",
+                "command": "get-add-except"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-history"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/exptGlobal/list",
+            "componentUrl": "@/views/operationConfig/switch/global-except.vue",
+            "name": "operationConfig-exptGlobal-list",
+            "meta": {
+              "title": "operationConfig-exptGlobal-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/ServiceSwitch/GetExcepts",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加例外",
+                "command": "add-except",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List",
+                  "api/order/Admin/Config/ServiceSwitch/AddExcept"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-except",
+                "scopeNames": [
+                  "api/order/Admin/Config/ServiceSwitch/RemoveExcept"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-history"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/element/list",
+            "componentUrl": "@/views/operationConfig/element/list.vue",
+            "name": "Element-list",
+            "meta": {
+              "title": "Element-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/Element/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加元素",
+                "command": "add-element",
+                "scopeNames": [
+                  "api/order/Admin/Config/Element/Upsert"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "delete-element",
+                "scopeNames": [
+                  "api/order/Admin/Config/Element/Delete"
+                ]
+              },
+              {
+                "name": "修改含量",
+                "command": "update-element",
+                "scopeNames": [
+                  "api/order/Admin/Config/Element/Upsert"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/recoverFee/list",
+            "componentUrl": "@/views/operationConfig/recoverFee/list.vue",
+            "name": "Platform-recover-list",
+            "meta": {
+              "title": "Platform-recover-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/RecoverFee/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "add-recoverFee",
+                "scopeNames": [
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List",
+                  "api/order/Admin/Config/RecoverFee/Add"
+                ]
+              },
+              {
+                "name": "修改手续费",
+                "command": "update-recoverFee",
+                "scopeNames": [
+                  "api/order/Admin/Config/RecoverFee/Update"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operate-record"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/recoverFee/record",
+            "componentUrl": "@/views/operationConfig/recoverFee/record.vue",
+            "name": "Platform-record-list",
+            "meta": {
+              "title": "Platform-record-list",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/Records"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-back"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/recycleAbnormal/list",
+            "componentUrl": "@/views/operationConfig/recycleAbnormal/list.vue",
+            "name": "recycle-abnormal-list",
+            "meta": {
+              "title": "recycle-abnormal-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Config/RecycleAbnormal/List",
+              "api/terminal/Admin/Terminal/GetList",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加配置",
+                "command": "create-config",
+                "scopeNames": [
+                  "api/order/Admin/Config/RecycleAbnormal/Add",
+                  "api/terminal/Admin/Terminal/GetList",
+                  "api/crm/Admin/Merchant/List",
+                  "api/crm/Admin/Shop/List"
+                ]
+              },
+              {
+                "name": "关闭",
+                "command": "close-config",
+                "scopeNames": [
+                  "api/order/Admin/Config/RecycleAbnormal/Update"
+                ]
+              },
+              {
+                "name": "开启",
+                "command": "open-config",
+                "scopeNames": [
+                  "api/order/Admin/Config/RecycleAbnormal/Update"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operate-record"
+              }
+            ]
+          },
+          {
+            "path": "/operationConfig/recycleAbnormal/record",
+            "componentUrl": "@/views/operationConfig/recycleAbnormal/record.vue",
+            "name": "recycle-abnormal-record",
+            "meta": {
+              "title": "recycle-abnormal-record",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Config/Records"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-back"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/product",
+        "componentUrl": "@/layout",
+        "name": "Product",
+        "alwaysShow": true,
+        "meta": {
+          "title": "Product",
+          "icon": "product",
+          "cachePage": true
+        },
+        "children": [
+          {
+            "path": "/product/recovery/category",
+            "componentUrl": "@/views/product/recovery/category.vue",
+            "name": "Product-recovery-category",
+            "meta": {
+              "title": "Product-recovery-category",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/Product/Category/List"
+            ],
+            "privileges": [
+              {
+                "command": "add-category",
+                "name": "添加分类",
+                "scopeNames": [
+                  "api/order/Admin/Product/Category/List",
+                  "api/order/Admin/Product/Category/Create"
+                ]
+              },
+              {
+                "command": "update-category",
+                "name": "修改分类",
+                "scopeNames": [
+                  "api/order/Admin/Product/Category/List",
+                  "api/order/Admin/Product/Category/Update"
+                ]
+              },
+              {
+                "command": "remove-category",
+                "name": "删除分类",
+                "scopeNames": [
+                  "api/order/Admin/Product/Category"
+                ]
+              },
+              {
+                "command": "get-category-brand",
+                "name": "品牌列表"
+              }
+            ]
+          },
+          {
+            "path": "/product/recovery/brand",
+            "componentUrl": "@/views/product/recovery/brand.vue",
+            "name": "Product-recovery-brand",
+            "meta": {
+              "title": "Product-recovery-brand",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/product/brand/list",
+              "api/order/Admin/Product/Category/Search",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "command": "add-brand",
+                "name": "添加品牌",
+                "scopeNames": [
+                  "api/order/Admin/Product/Category/List",
+                  "api/order/Admin/product/brand/create"
+                ]
+              },
+              {
+                "name": "修改状态",
+                "command": "update-brand-state",
+                "scopeNames": [
+                  "api/order/Admin/product/brand/state"
+                ]
+              },
+              {
+                "name": "修改信息",
+                "command": "update-brand",
+                "scopeNames": [
+                  "api/order/Admin/Product/Category/List",
+                  "api/order/Admin/product/brand/update"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/product/recovery/platform/public",
+            "componentUrl": "@/views/product/recovery/platform-public.vue",
+            "name": "Product-platform-public",
+            "meta": {
+              "title": "Product-platform-public",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/product/list/recycle"
+            ],
+            "privileges": [
+              {
+                "command": "add-platform-product",
+                "name": "添加产品"
+              },
+              {
+                "name": "修改状态",
+                "command": "update-public-product-state",
+                "scopeNames": [
+                  "api/order/Admin/product/state"
+                ]
+              },
+              {
+                "name": "修改分类及品牌",
+                "command": "update-public-category-brand",
+                "scopeNames": [
+                  "api/order/Admin/product/brand/category",
+                  "api/order/Admin/Product/Category/List",
+                  "api/order/Admin/product/category"
+                ]
+              },
+              {
+                "name": "修改排序权重",
+                "command": "update-public-sort",
+                "scopeNames": [
+                  "api/order/Admin/product/sort"
+                ]
+              },
+              {
+                "name": "修改手续费",
+                "command": "update-public-service-charge",
+                "scopeNames": [
+                  "api/order/Admin/product/recycle/fees"
+                ]
+              },
+              {
+                "name": "修改税率",
+                "command": "update-public-loss-charge",
+                "scopeNames": [
+                  "api/order/Admin/product/recycle/fees"
+                ]
+              },
+              {
+                "name": "修改产品规则",
+                "command": "update-public-rule",
+                "scopeNames": [
+                  "api/order/Admin/product/recycle/rule"
+                ]
+              },
+              {
+                "name": "修改基础信息",
+                "command": "update-public-info",
+                "scopeNames": [
+                  "api/order/Admin/product/update"
+                ]
+              },
+              {
+                "name": "修改产品详情",
+                "command": "update-public-description"
+              },
+              {
+                "name": "操作记录",
+                "command": "get-public-records"
+              }
+            ]
+          },
+          {
+            "path": "/product/recovery/platform/shop",
+            "componentUrl": "@/views/product/recovery/platform-shop.vue",
+            "name": "Product-platform-shop",
+            "meta": {
+              "title": "Product-platform-shop",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/admin/product/store/list/recycle",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "command": "add-store-product",
+                "name": "添加产品",
+                "scopeNames": [
+                  "api/order/admin/product/store/create",
+                  "api/order/Admin/product/store"
+                ]
+              },
+              {
+                "name": "设置产品状态",
+                "command": "update-store-product-state",
+                "scopeNames": [
+                  "api/order/admin/product/store/state"
+                ]
+              },
+              {
+                "name": "设置手续费",
+                "command": "update-store-service-charge",
+                "scopeNames": [
+                  "api/order/admin/product/store/fee"
+                ]
+              },
+              {
+                "name": "设置税率",
+                "command": "update-store-loss-charge",
+                "scopeNames": [
+                  "api/order/admin/product/store/fee"
+                ]
+              },
+              {
+                "name": "设置排序权重",
+                "command": "update-store-sort",
+                "scopeNames": [
+                  "api/order/admin/product/store/sort"
+                ]
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-history"
+              }
+            ]
+          },
+          {
+            "path": "/product/recovery/merchant/public",
+            "componentUrl": "@/views/product/recovery/merchant-public.vue",
+            "name": "Product-merchant-public",
+            "meta": {
+              "title": "Product-merchant-public",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/Admin/product/list/recycle",
+              "api/crm/Admin/Merchant/List"
+            ],
+            "privileges": [
+              {
+                "name": "操作记录",
+                "command": "get-public-records"
+              }
+            ]
+          },
+          {
+            "path": "/product/recovery/platform/detail",
+            "componentUrl": "@/views/product/recovery/public-detail.vue",
+            "name": "Product-platform-detail",
+            "meta": {
+              "title": "Product-platform-detail",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/product/detail/recycle",
+              "api/order/Admin/Product/description"
+            ]
+          },
+          {
+            "path": "/product/recovery/platform/add",
+            "componentUrl": "@/views/product/recovery/public-add.vue",
+            "name": "Product-platform-add",
+            "meta": {
+              "title": "Product-platform-add",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Product/Category/List",
+              "api/order/Admin/product/create/recycle"
+            ]
+          },
+          {
+            "path": "/product/recovery/platform/records",
+            "componentUrl": "@/views/product/recovery/public-records.vue",
+            "name": "Product-public-records",
+            "meta": {
+              "title": "Product-public-records",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Product/records",
+              "api/order/Admin/product/list/recycle"
+            ]
+          },
+          {
+            "path": "/product/recovery/merchant/shop",
+            "componentUrl": "@/views/product/recovery/merchant-shop.vue",
+            "name": "Product-merchant-shop",
+            "meta": {
+              "title": "Product-merchant-shop",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/order/admin/product/store/list/recycle",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ]
+          },
+          {
+            "path": "/product/recovery/merchant/shop/record",
+            "componentUrl": "@/views/product/recovery/merchant-shop-record.vue",
+            "name": "Product-merchant-shop-record",
+            "meta": {
+              "title": "Product-merchant-shop-record",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/admin/product/store/records"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-back-list"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/agreement",
+        "componentUrl": "@/layout",
+        "name": "agreement",
+        "alwaysShow": true,
+        "meta": {
+          "title": "agreement",
+          "icon": "contract",
+          "cachePage": true
+        },
+        "children": [
+          {
+            "path": "/agreement/list",
+            "componentUrl": "@/views/protocol/agreement/list.vue",
+            "name": "agreement-list",
+            "meta": {
+              "title": "agreement-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/protocol/Admin/Agreement/list",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "添加协议",
+                "command": "upsert-agreement"
+              },
+              {
+                "name": "修改协议",
+                "command": "upsert-agreement"
+              },
+              {
+                "name": "历史版本",
+                "command": "get-history"
+              }
+            ]
+          },
+          {
+            "path": "/agreement/history",
+            "componentUrl": "@/views/protocol/agreement/history.vue",
+            "name": "agreement-history",
+            "meta": {
+              "title": "agreement-history",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/protocol/Admin/Agreement/history",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ]
+          },
+          {
+            "path": "/agreement/upsert",
+            "componentUrl": "@/views/protocol/agreement/upsertAgreement.vue",
+            "name": "upsert-agreement",
+            "meta": {
+              "title": "upsert-agreement",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/crm/Admin/Shop/List",
+              "api/protocol/Admin/Agreement/upsert",
+              "api/protocol/Admin/Agreement/detail"
+            ]
+          },
+          {
+            "path": "/agreement/category/list",
+            "componentUrl": "@/views/protocol/category/list.vue",
+            "name": "category-list",
+            "meta": {
+              "title": "category-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/protocol/Admin/Category/list"
+            ],
+            "privileges": [
+              {
+                "name": "添加分类",
+                "command": "add-category",
+                "scopeNames": [
+                  "api/protocol/Admin/Category/create"
+                ]
+              },
+              {
+                "name": "修改分类",
+                "command": "update-category",
+                "scopeNames": [
+                  "api/protocol/Admin/Category/update"
+                ]
+              },
+              {
+                "name": "删除分类",
+                "command": "delete-category",
+                "scopeNames": [
+                  "api/protocol/Admin/Category/delete"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/agreement/contractTemplate/list",
+            "componentUrl": "@/views/protocol/contractTemplate/list.vue",
+            "name": "contract-template-list",
+            "meta": {
+              "title": "contract-template-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/protocol/Admin/Template/list",
+              "api/protocol/Admin/Category/list"
+            ],
+            "privileges": [
+              {
+                "name": "添加模板",
+                "command": "create-template"
+              },
+              {
+                "name": "更新模板",
+                "command": "update-template"
+              },
+              {
+                "name": "删除模板",
+                "command": "delete-template",
+                "scopeNames": [
+                  "api/protocol/Admin/Template/delete"
+                ]
+              },
+              {
+                "name": "发布模板",
+                "command": "publish-template",
+                "scopeNames": [
+                  "api/protocol/Admin/Template/publish"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/agreement/contractTemplate/create",
+            "componentUrl": "@/views/protocol/contractTemplate/create.vue",
+            "name": "contract-template-create",
+            "meta": {
+              "title": "contract-template-create",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/protocol/Admin/Category/list",
+              "api/protocol/Admin/Template/create"
+            ]
+          },
+          {
+            "path": "/agreement/contractTemplate/update",
+            "componentUrl": "@/views/protocol/contractTemplate/update.vue",
+            "name": "contract-template-update",
+            "meta": {
+              "title": "contract-template-update",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/protocol/Admin/Category/list",
+              "api/protocol/Admin/Template/update"
+            ]
+          },
+          {
+            "path": "/agreement/contract/list",
+            "componentUrl": "@/views/protocol/contract/list.vue",
+            "name": "contract-list",
+            "meta": {
+              "title": "contract-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/protocol/Admin/Contract/list",
+              "api/protocol/Admin/Template/list"
+            ],
+            "privileges": [
+              {
+                "name": "合同详情",
+                "command": "get-detail"
+              },
+              {
+                "name": "作废合同",
+                "command": "abandon-contract",
+                "scopeNames": [
+                  "api/protocol/Admin/Contract/abandon"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/agreement/contract/detail",
+            "componentUrl": "@/views/protocol/contract/detail.vue",
+            "name": "contract-detail",
+            "meta": {
+              "title": "contract-detail",
+              "cachePage": false,
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/protocol/Admin/Contract/detail"
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/finance",
+        "componentUrl": "@/layout",
+        "name": "finance",
+        "alwaysShow": true,
+        "meta": {
+          "title": "finance",
+          "icon": "finance",
+          "cachePage": true
+        },
+        "children": [
+          {
+            "path": "/finance/recyclingStatement/list",
+            "componentUrl": "@/views/finance/recyclingStatement/list.vue",
+            "name": "finance-recycling-statement",
+            "meta": {
+              "title": "finance-recycling-statement",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "resource": [
+              "api/order/Admin/Profit/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "结算单明细",
+                "command": "get-query-items"
+              },
+              {
+                "name": "结算单明细",
+                "command": "get-query-items"
+              },
+              {
+                "name": "结算单记录",
+                "command": "get-query-record"
+              }
+            ]
+          },
+          {
+            "path": "/finance/recyclingStatement/record",
+            "componentUrl": "@/views/finance/recyclingStatement/record.vue",
+            "name": "finance-recycling-record",
+            "meta": {
+              "title": "finance-recycling-record",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Profit/Records"
+            ]
+          },
+          {
+            "path": "/finance/recyclingStatement/items",
+            "componentUrl": "@/views/finance/recyclingStatement/items.vue",
+            "name": "finance-recycling-items",
+            "meta": {
+              "title": "finance-recycling-items",
+              "elSvgIcon": "HelpFilled",
+              "cachePage": false
+            },
+            "hidden": true,
+            "resource": [
+              "api/order/Admin/Profit/Items"
+            ],
+            "privileges": [
+              {
+                "name": "返回",
+                "command": "get-back"
+              },
+              {
+                "name": "确认结算单",
+                "command": "confirm-profit",
+                "scopeNames": [
+                  "api/order/Admin/Profit/Confirm"
+                ]
+              },
+              {
+                "name": "拒绝结算单",
+                "command": "refused-profit",
+                "scopeNames": [
+                  "api/order/Admin/Profit/Refused"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/finance/merchant/capitalaccount",
+            "componentUrl": "@/views/finance/merchant/list.vue",
+            "name": "finance-merchant-capitalaccount",
+            "meta": {
+              "title": "finance-merchant-capitalaccount",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/crm/Admin/CapitalAccount/Mch/List",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "充值",
+                "command": "charge-profit",
+                "scopeNames": []
+              },
+              {
+                "name": "冻结",
+                "command": "frozen-profit",
+                "scopeNames": []
+              },
+              {
+                "name": "查看全部账户",
+                "command": "get-account-list",
+                "scopeNames": []
+              },
+              {
+                "name": "收支明细",
+                "command": "income-pay-detail",
+                "scopeNames": []
+              },
+              {
+                "name": "操作记录",
+                "command": "get-operation-record",
+                "scopeNames": []
+              }
+            ]
+          },
+          {
+            "path": "/finance/settlement/config",
+            "componentUrl": "@/views/order/tradeAdmin/list.vue",
+            "name": "finance-settlement-config",
+            "meta": {
+              "title": "finance-settlement-config",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/finance/merchant/settlement",
+            "componentUrl": "@/views/order/tradeAdmin/list.vue",
+            "name": "finance-merchant-settlement",
+            "meta": {
+              "title": "finance-merchant-settlement",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/finance/shop/settlement",
+            "componentUrl": "@/views/order/tradeAdmin/list.vue",
+            "name": "finance-shop-settlement",
+            "meta": {
+              "title": "finance-shop-settlement",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/finance/shop/capitalaccount",
+            "componentUrl": "@/views/order/tradeAdmin/list.vue",
+            "name": "finance-shop-capitalaccount",
+            "meta": {
+              "title": "finance-shop-capitalaccount",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/finance/employee/capitalaccount",
+            "componentUrl": "@/views/finance/employee/list.vue",
+            "name": "finance-employee-capitalaccount",
+            "meta": {
+              "title": "finance-employee-capitalaccount",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/finance/membership/capitalaccount",
+            "componentUrl": "@/views/finance/membership/list.vue",
+            "name": "finance-membership-capitalaccount",
+            "meta": {
+              "title": "finance-membership-capitalaccount",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          }
+        ]
+      },
+      {
+        "path": "/activity",
+        "componentUrl": "@/layout",
+        "name": "activity",
+        "alwaysShow": true,
+        "meta": {
+          "title": "activity",
+          "icon": "activity",
+          "cachePage": true
+        },
+        "children": [
+          {
+            "path": "/activity/card/list",
+            "componentUrl": "@/views/coupon/card/category-list.vue",
+            "name": "activity-card-list",
+            "meta": {
+              "title": "activity-card-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/coupon/admin/coupon/category/list",
+              "api/coupon/admin/couponcategory/list",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "卡模板",
+                "command": "get-coupon-modal"
+              },
+              {
+                "name": "发卡明细",
+                "command": "get-coupon-issue"
+              }
+            ]
+          },
+          {
+            "path": "/activity/card/modal/list",
+            "componentUrl": "@/views/coupon/card/modal-list.vue",
+            "name": "activity-card-modal-list",
+            "meta": {
+              "title": "activity-card-modal-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/coupon/admin/coupon/list",
+              "api/coupon/admin/couponcategory/list",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "启用",
+                "command": "enable-coupon",
+                "scopeNames": [
+                  "api/coupon/admin/coupon/disable"
+                ]
+              },
+              {
+                "name": "废弃",
+                "command": "disable-coupon",
+                "scopeNames": [
+                  "api/coupon/admin/coupon/disable"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/activity/card/issue/list",
+            "componentUrl": "@/views/coupon/card/issue-list.vue",
+            "name": "activity-card-issue-list",
+            "meta": {
+              "title": "activity-card-issue-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/coupon/admin/couponIssue/issue/list",
+              "api/coupon/admin/couponcategory/list",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "优惠信息",
+                "command": "coupon-info"
+              },
+              {
+                "name": "使用记录",
+                "command": "get-issue-record"
+              },
+              {
+                "name": "设置状态",
+                "command": "set-issue-status",
+                "scopeNames": [
+                  "api/coupon/admin/couponIssue/status"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/activity/card/issue/record",
+            "componentUrl": "@/views/coupon/card/issue-record.vue",
+            "name": "activity-card-issue-record",
+            "meta": {
+              "title": "activity-card-issue-record",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/coupon/admin/couponIssue/record"
+            ]
+          },
+          {
+            "path": "/coupon/category/list",
+            "componentUrl": "@/views/coupon/category/list.vue",
+            "name": "coupon-category-list",
+            "meta": {
+              "title": "coupon-category-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/coupon/admin/couponcategory/list",
+              "api/crm/Admin/Merchant/List",
+              "api/crm/Admin/Shop/List"
+            ],
+            "privileges": [
+              {
+                "name": "新增类别",
+                "command": "create-category",
+                "scopeNames": [
+                  "api/coupon/admin/couponcategory/create"
+                ]
+              },
+              {
+                "name": "修改",
+                "command": "update-category",
+                "scopeNames": [
+                  "api/coupon/admin/couponcategory/update"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "remove-category",
+                "scopeNames": [
+                  "api/coupon/admin/couponcategory/remove"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": "/jurisdiction",
+        "componentUrl": "@/layout",
+        "name": "Jurisdiction",
+        "alwaysShow": true,
+        "meta": {
+          "title": "Jurisdiction",
+          "icon": "jurisdiction"
+        },
+        "children": [
+          {
+            "path": "/jurisdiction/systemMenu/list",
+            "componentUrl": "@/views/jurisdiction/systemRole/list.vue",
+            "name": "Jurisdiction-systemMenu-list",
+            "meta": {
+              "title": "Jurisdiction-systemMenu-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [],
+            "privileges": [
+              {
+                "name": "添加角色",
+                "command": "create-role",
+                "scopeNames": [
+                  "api/id4api/Roles/createRole"
+                ]
+              },
+              {
+                "name": "修改",
+                "command": "edit-role",
+                "scopeNames": [
+                  "api/id4api/Roles/update"
+                ]
+              },
+              {
+                "name": "删除",
+                "command": "remove-role",
+                "scopeNames": [
+                  "api/id4api/Roles/deleteRole"
+                ]
+              },
+              {
+                "name": "设置权限",
+                "command": "ser-jurisdiction",
+                "scopeNames": []
+              }
+            ]
+          },
+          {
+            "path": "/jurisdiction/merchantMenu/list",
+            "componentUrl": "@/views/jurisdiction/systemRole/list.vue",
+            "name": "Jurisdiction-merchantMenu-list",
+            "meta": {
+              "title": "Jurisdiction-merchantMenu-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/jurisdiction/systemRole/list",
+            "componentUrl": "@/views/jurisdiction/systemRole/list.vue",
+            "name": "Jurisdiction-systemRole-list",
+            "meta": {
+              "title": "Jurisdiction-systemRole-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/jurisdiction/merchantRole/list",
+            "componentUrl": "@/views/jurisdiction/systemRole/list.vue",
+            "name": "Jurisdiction-merchantRole-list",
+            "meta": {
+              "title": "Jurisdiction-merchantRole-list",
+              "elSvgIcon": "HelpFilled"
+            }
+          },
+          {
+            "path": "/jurisdiction/shopRole/list",
+            "componentUrl": "@/views/jurisdiction/systemRole/list.vue",
+            "name": "Jurisdiction-shopRole-list",
+            "meta": {
+              "title": "Jurisdiction-shopRole-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          },
+          {
+            "path": "/jurisdiction/set-permission/list",
+            "componentUrl": "@/views/jurisdiction/permission/list.vue",
+            "name": "Jurisdiction-permission-list",
+            "meta": {
+              "title": "Jurisdiction-permission-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": []
+          }
+        ]
+      },
+      {
+        "path": "/staff",
+        "componentUrl": "@/layout",
+        "name": "Staff",
+        "alwaysShow": true,
+        "meta": {
+          "title": "Staff",
+          "icon": "staff"
+        },
+        "children": [
+          {
+            "path": "/staff/employee/list",
+            "componentUrl": "@/views/staff/employee/list.vue",
+            "name": "Staff-employee-list",
+            "meta": {
+              "title": "Staff-employee-list",
+              "elSvgIcon": "HelpFilled"
+            },
+            "resource": [
+              "api/id4api/Users/getUsers",
+              "api/id4api/Roles/list"
+            ],
+            "privileges": [
+              {
+                "name": "角色管理",
+                "command": "get-roles"
+              }
+            ]
+          },
+          {
+            "path": "/staff/employee/role",
+            "componentUrl": "@/views/staff/employee/role.vue",
+            "name": "Staff-employee-role",
+            "meta": {
+              "title": "Staff-employee-role",
+              "elSvgIcon": "HelpFilled"
+            },
+            "hidden": true,
+            "resource": [
+              "api/id4api/Users/getUserRoles"
+            ],
+            "privileges": [
+              {
+                "command": "set-role",
+                "name": "设置角色",
+                "scopeNames": [
+                  "api/id4api/Roles/list",
+                  "api/id4api/Users/createUserRoles"
+                ]
+              },
+              {
+                "name": "删除角色",
+                "command": "remove-role",
+                "scopeNames": [
+                  "api/id4api/Users/Roles"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

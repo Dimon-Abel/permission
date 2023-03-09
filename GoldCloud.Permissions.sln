@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D420D874-7B6A-4013-8F74-CADFA52DB7C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoldCloud.Permissions", "GoldCloud.Permissions", "{F3D6895B-6795-4C3F-91A3-F609E430D242}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoldCloud.Infrastructure", "GoldCloud.Infrastructure", "{8B600FD5-22EC-4112-8ED5-D2D774063D51}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldCloud.Permissions.Host", "src\GoldCloud.Permissions\GoldCloud.Permissions.Host\GoldCloud.Permissions.Host.csproj", "{DABB9494-6B30-4E4E-9493-DA5823396461}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldCloud.Infrastructure.DataBase", "src\GoldCloud.Infrastructure\GoldCloud.Infrastructure.DataBase\GoldCloud.Infrastructure.DataBase.csproj", "{E8D594DC-DFD7-4548-BBD0-BCE72ED98E31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoldCloud.Domain", "GoldCloud.Domain", "{F2E4BC6E-D4E9-4F9F-B3A5-08459490536C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldCloud.Domain.Interfaces", "src\GoldCloud.Domain\GoldCloud.Domain.Interfaces\GoldCloud.Domain.Interfaces.csproj", "{9064DDBF-08A7-4177-B0B0-FFC8C370B694}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldCloud.Domain.Impls", "src\GoldCloud.Domain\GoldCloud.Domain.Impls\GoldCloud.Domain.Impls.csproj", "{73F03625-8622-4A94-841A-0AD486875FFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldCloud.Domain.Handlers", "src\GoldCloud.Domain\GoldCloud.Domain.Handlers\GoldCloud.Domain.Handlers.csproj", "{FC8E191C-1AE1-43AF-AE46-45B679E78192}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldCloud.Permissions.Api", "src\GoldCloud.Permissions\GoldCloud.Permissions.Api\GoldCloud.Permissions.Api.csproj", "{910A3B12-71AB-4E83-9336-4AEC3233C964}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedDataInitialize", "src\GoldCloud.Permissions\SeedDataInitialize\SeedDataInitialize.csproj", "{5B0479A9-1F2D-462A-B25C-57F3D043B798}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoldCloud.Infrastructure.Shared", "src\GoldCloud.Infrastructure\GoldCloud.Infrastructure.Shared\GoldCloud.Infrastructure.Shared.csproj", "{FF7C72FD-4691-4BED-A9B0-A3D7922A042B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{66201B0F-7A46-413F-94C7-9E99E3E267C2}"
+	ProjectSection(SolutionItems) = preProject
+		docs\README.md = docs\README.md
+		docs\权限.xmind = docs\权限.xmind
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DABB9494-6B30-4E4E-9493-DA5823396461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DABB9494-6B30-4E4E-9493-DA5823396461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DABB9494-6B30-4E4E-9493-DA5823396461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DABB9494-6B30-4E4E-9493-DA5823396461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8D594DC-DFD7-4548-BBD0-BCE72ED98E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D594DC-DFD7-4548-BBD0-BCE72ED98E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D594DC-DFD7-4548-BBD0-BCE72ED98E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D594DC-DFD7-4548-BBD0-BCE72ED98E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9064DDBF-08A7-4177-B0B0-FFC8C370B694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9064DDBF-08A7-4177-B0B0-FFC8C370B694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9064DDBF-08A7-4177-B0B0-FFC8C370B694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9064DDBF-08A7-4177-B0B0-FFC8C370B694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73F03625-8622-4A94-841A-0AD486875FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73F03625-8622-4A94-841A-0AD486875FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73F03625-8622-4A94-841A-0AD486875FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73F03625-8622-4A94-841A-0AD486875FFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC8E191C-1AE1-43AF-AE46-45B679E78192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8E191C-1AE1-43AF-AE46-45B679E78192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8E191C-1AE1-43AF-AE46-45B679E78192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8E191C-1AE1-43AF-AE46-45B679E78192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{910A3B12-71AB-4E83-9336-4AEC3233C964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910A3B12-71AB-4E83-9336-4AEC3233C964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910A3B12-71AB-4E83-9336-4AEC3233C964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910A3B12-71AB-4E83-9336-4AEC3233C964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B0479A9-1F2D-462A-B25C-57F3D043B798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B0479A9-1F2D-462A-B25C-57F3D043B798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B0479A9-1F2D-462A-B25C-57F3D043B798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B0479A9-1F2D-462A-B25C-57F3D043B798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF7C72FD-4691-4BED-A9B0-A3D7922A042B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF7C72FD-4691-4BED-A9B0-A3D7922A042B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF7C72FD-4691-4BED-A9B0-A3D7922A042B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF7C72FD-4691-4BED-A9B0-A3D7922A042B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3D6895B-6795-4C3F-91A3-F609E430D242} = {D420D874-7B6A-4013-8F74-CADFA52DB7C5}
+		{8B600FD5-22EC-4112-8ED5-D2D774063D51} = {D420D874-7B6A-4013-8F74-CADFA52DB7C5}
+		{DABB9494-6B30-4E4E-9493-DA5823396461} = {F3D6895B-6795-4C3F-91A3-F609E430D242}
+		{E8D594DC-DFD7-4548-BBD0-BCE72ED98E31} = {8B600FD5-22EC-4112-8ED5-D2D774063D51}
+		{F2E4BC6E-D4E9-4F9F-B3A5-08459490536C} = {D420D874-7B6A-4013-8F74-CADFA52DB7C5}
+		{9064DDBF-08A7-4177-B0B0-FFC8C370B694} = {F2E4BC6E-D4E9-4F9F-B3A5-08459490536C}
+		{73F03625-8622-4A94-841A-0AD486875FFA} = {F2E4BC6E-D4E9-4F9F-B3A5-08459490536C}
+		{FC8E191C-1AE1-43AF-AE46-45B679E78192} = {F2E4BC6E-D4E9-4F9F-B3A5-08459490536C}
+		{910A3B12-71AB-4E83-9336-4AEC3233C964} = {F3D6895B-6795-4C3F-91A3-F609E430D242}
+		{5B0479A9-1F2D-462A-B25C-57F3D043B798} = {F3D6895B-6795-4C3F-91A3-F609E430D242}
+		{FF7C72FD-4691-4BED-A9B0-A3D7922A042B} = {8B600FD5-22EC-4112-8ED5-D2D774063D51}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D46F5877-49ED-46CE-BE9E-FB3B8EBC1576}
+	EndGlobalSection
+EndGlobal
